@@ -8,31 +8,58 @@
     <link rel="stylesheet" href="style/index.css" />
   </head>
   <body>
+    <audio id="audio"></audio>
     <div class="mp3-container">
+      <div id="background" class="mp3-container__background"></div>
       <div class="mp3-container__device">
         <div class="mp3-container__device__head">
-          <h1 class="mp3-container__device__head__title">title</h1>
-          <h1 class="mp3-container__device__head__artist">artist</h1>
-          <div class="mp3-container__device__head__disk">
+          <h1 id="title" class="mp3-container__device__head__title">title</h1>
+          <h1 id="artist" class="mp3-container__device__head__artist">
+            artist
+          </h1>
+          <div id="disk" class="mp3-container__device__head__disk">
             <div class="mp3-container__device__head__disk__point"></div>
           </div>
         </div>
         <div class="mp3-container__device__body">
           <div class="mp3-container__device__body__track-wrap">
-            <h1 class="mp3-container__device__body__track-wrap__start-time">
-              00 : 00
+            <h1
+              id="start-time"
+              class="mp3-container__device__body__track-wrap__start-time"
+            >
+              00:00
             </h1>
-            <!-- <h1 class="mp3-container__device__body__track-wrap__end-time">
-              00 : 00
-            </h1> -->
+            <h1
+              id="end-time"
+              class="mp3-container__device__body__track-wrap__end-time"
+            >
+              00:00
+            </h1>
             <input
+              id="timeline"
               type="range"
-              class="mp3-container__device__body__track-wrap__input-track"
+              class="mp3-container__device__body__track-wrap__timeline"
+              value="0"
             />
+          </div>
+          <div class="mp3-container__device__body__bottons-wrap">
+            <div
+              id="play-btn"
+              class="mp3-container__device__body__bottons-wrap__play-btn--hover"
+            ></div>
+            <!-- <div class="mp3-container__device__body__bottons-wrap__loop-btn--hover"></div>
+            <div class="mp3-container__device__body__bottons-wrap__volume-btn--hover"></div> -->
           </div>
         </div>
       </div>
+      <input id="test_input" type="file" style="position: absolute" />
     </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
     <script type="text/javascript" src="/javascript/index.js"></script>
+    <script type="text/javascript" src="/javascript/function.js"></script>
+    <script type="text/javascript" src="/javascript/event.js"></script>
   </body>
 </html>
