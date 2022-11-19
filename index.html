@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style/index.css">
-</head>
-<body>
-    <div class="mp3-container"></div>
+    <link rel="stylesheet" href="style/index.css" />
+  </head>
+  <body>
+    <div class="mp3-container">
+      <div class="mp3-container__device">
+        <div class="mp3-container__device__head">
+          <h1 class="mp3-container__device__head__title">title</h1>
+          <h1 class="mp3-container__device__head__artist">artist</h1>
+          <div class="mp3-container__device__head__disk">
+            <div class="mp3-container__device__head__disk__point"></div>
+          </div>
+        </div>
+        <div class="mp3-container__device__body">
+          <div class="mp3-container__device__body__track-wrap">
+            <h1 class="mp3-container__device__body__track-wrap__start-time">
+              00 : 00
+            </h1>
+            <!-- <h1 class="mp3-container__device__body__track-wrap__end-time">
+              00 : 00
+            </h1> -->
+            <input
+              type="range"
+              class="mp3-container__device__body__track-wrap__input-track"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="text/javascript" src="/javascript/index.js"></script>
-</body>
+  </body>
 </html>

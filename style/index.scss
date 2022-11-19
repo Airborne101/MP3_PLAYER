@@ -1,1 +1,140 @@
 @import url("/style/reset.css");
+
+// ▼ 변수
+
+$mp3-container__device__head__color: black;
+$radius-1rem: 1rem;
+
+// ▲ 변수
+
+// ▼ 폰트
+
+@font-face {
+  font-family: "NanumPenScript-Regular";
+  src: url("/style/NanumPenScript-Regular.ttf") format("truetype");
+}
+
+// ▲ 폰트
+
+input[type="range"] {
+  -webkit-appearance: none;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  background: rgb(255, 219, 219);
+  border-radius: $radius-1rem;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: black;
+  // box-shadow: -100vw 0 0 100vw rgb(255, 109, 133);
+  box-shadow: -100rem 0 0 100rem rgb(255, 109, 133);
+}
+
+.mp3-container {
+  width: 100vw;
+  height: 100vh;
+  font-family: "NanumPenScript-Regular";
+
+  &__device {
+    width: 25rem;
+    height: 42rem;
+    position: absolute;
+    top: 11rem;
+    left: 40%;
+    border-radius: $radius-1rem;
+    box-shadow: black 0rem 0.5rem 1rem;
+    border: 0.1rem solid black;
+
+    &__head {
+      width: 25rem;
+      height: 24rem;
+      border-top-left-radius: $radius-1rem;
+      border-top-right-radius: $radius-1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__title {
+        color: $mp3-container__device__head__color;
+        padding-top: 0.7rem;
+        padding-bottom: 0.5rem;
+        font-size: 2rem;
+      }
+
+      &__artist {
+        font-size: 1.5rem;
+        color: $mp3-container__device__head__color;
+      }
+
+      &__disk {
+        margin-top: 1rem;
+        width: 17rem;
+        height: 17rem;
+        border-radius: 9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate_image 10s linear infinite;
+        transform-origin: 50% 50%;
+        background-image: url(/img/folder.jpg); // 임시
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 0.1rem solid black;
+
+        @keyframes rotate_image {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        &__point {
+          width: 1.5rem;
+          height: 1.5rem;
+          background-color: white; //임시
+          border-radius: 2rem;
+          border: 0.1rem solid black;
+        }
+      }
+    }
+
+    &__body {
+      width: 25rem;
+      height: 18rem;
+      background-color: pink; //임시
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+
+      &__track-wrap {
+        position: relative;
+        width: 25rem;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+
+        &__input-track {
+          width: 22rem;
+          height: 0.9rem;
+        }
+
+        &__start-time {
+          position: absolute;
+          font-size: 1.5rem;
+        }
+
+        &__end-time {
+          position: absolute;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
