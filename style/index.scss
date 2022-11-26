@@ -16,6 +16,7 @@ $radius-1rem: 1rem;
 
 // ▲ 폰트
 
+// ▼ 공통요소
 input[type="range"] {
   -webkit-appearance: none;
   overflow: hidden;
@@ -37,6 +38,8 @@ input[type="range"]::-webkit-slider-thumb {
   // box-shadow: -100vw 0 0 100vw rgb(255, 109, 133);
   box-shadow: -100rem 0 0 100rem rgb(255, 109, 133);
 }
+
+// ▲ 공통요소
 
 .mp3-container {
   width: 100vw;
@@ -112,6 +115,10 @@ input[type="range"]::-webkit-slider-thumb {
           border-radius: 2rem;
           border: 0.1rem solid black;
         }
+
+        &__pause {
+          animation-play-state: paused;
+        }
       }
     }
 
@@ -176,6 +183,24 @@ input[type="range"]::-webkit-slider-thumb {
           cursor: pointer;
         }
 
+        &__pause-btn--hover {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 3rem;
+          background-image: url("/img/pause_img.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          cursor: pointer;
+        }
+
+        &__pause-btn--hover:hover {
+          transition: all 0.5s;
+          background-image: url("/img/pause_img_hover.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          cursor: pointer;
+        }
+
         &__loop-btn--hover {
           width: 2rem;
           height: 2rem;
@@ -196,25 +221,84 @@ input[type="range"]::-webkit-slider-thumb {
           cursor: pointer;
         }
 
-        &__volume-btn--hover {
+        &__loop-btn-active--hover {
           width: 2rem;
           height: 2rem;
-          background-image: url("/img/mute_on.png");
+          background-image: url("/img/loop_active.png");
           background-repeat: no-repeat;
           background-size: contain;
           position: absolute;
           bottom: 0rem;
-          right: 1.5rem;
+          left: 1.5rem;
           cursor: pointer;
         }
 
-        &__volume-btn--hover:hover {
+        &__loop-btn-active--hover:hover {
           transition: all 0.5s;
-          background-image: url("/img/mute_on_hover.png");
+          background-image: url("/img/loop_disable.png");
           background-repeat: no-repeat;
           background-size: contain;
+          cursor: pointer;
         }
 
+        &__volume-wrap {
+          position: absolute;
+          width: 3rem;
+          height: 10rem;
+          bottom: 0rem;
+          right: 1rem;
+
+          &__volume-btn--hover {
+            width: 2rem;
+            height: 2rem;
+            background-image: url("/img/volume_on.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: 0rem;
+            right: 0.5rem;
+            cursor: pointer;
+          }
+
+          &__volume-btn--hover:hover {
+            transition: all 0.5s;
+            background-image: url("/img/volume_on_hover.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          &__volume-btn-mute--hover {
+            width: 2rem;
+            height: 2rem;
+            background-image: url("/img/mute_on.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: 0rem;
+            right: 0.5rem;
+            cursor: pointer;
+          }
+
+          &__volume-btn-mute--hover:hover {
+            transition: all 0.5s;
+            background-image: url("/img/mute_on_hover.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          &__volume-range {
+            width: 7rem;
+            height: 0.9rem;
+            transform: rotate(270deg);
+            position: absolute;
+            bottom: 5.5rem;
+            right: -2.1rem;
+          }
+
+          &__volume-range--hidden {
+            visibility: hidden;
+          }
+        }
       }
     }
   }
