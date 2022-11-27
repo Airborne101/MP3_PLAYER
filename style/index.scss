@@ -63,7 +63,7 @@ input[type="range"]::-webkit-slider-thumb {
     left: 40%;
     border-radius: $radius-1rem;
     box-shadow: black 0rem 0.5rem 1rem;
-    border: 0.1rem solid black;
+    border: 0.15rem solid black;
     background-color: white;
 
     &__head {
@@ -96,11 +96,11 @@ input[type="range"]::-webkit-slider-thumb {
         display: flex;
         justify-content: center;
         align-items: center;
-        animation: rotate_image 10s linear infinite;
+        animation: rotate_image 13s linear infinite;
         transform-origin: 50% 50%;
         background-size: contain;
         background-repeat: no-repeat;
-        border: 0.1rem solid black;
+        border: 0.15rem solid black;
 
         @keyframes rotate_image {
           100% {
@@ -113,7 +113,7 @@ input[type="range"]::-webkit-slider-thumb {
           height: 1.5rem;
           background-color: white; //임시
           border-radius: 2rem;
-          border: 0.1rem solid black;
+          border: 0.2rem solid black;
         }
 
         &__pause {
@@ -181,6 +181,26 @@ input[type="range"]::-webkit-slider-thumb {
           background-repeat: no-repeat;
           background-size: contain;
           cursor: pointer;
+        }
+
+        &__prev-btn--hover {
+          width: 5rem;
+          height: 5rem;
+          background-color: blue;
+        }
+
+        &__prev-btn--hover:hover {
+          
+        }
+
+        &__next-btn--hover {
+          width: 5rem;
+          height: 5rem;
+          background-color: green;
+        }
+
+        &__next-btn--hover:hover {
+          
         }
 
         &__pause-btn--hover {

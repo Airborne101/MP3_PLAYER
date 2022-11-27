@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/index.css" />
   </head>
   <body>
-    <audio id="audio"></audio>
+    <audio class="audio"></audio>
     <div class="mp3-container">
       <div id="background" class="mp3-container__background"></div>
       <div class="mp3-container__device">
@@ -47,14 +47,25 @@
           </div>
           <div class="mp3-container__device__body__bottons-wrap">
             <div
+              id="prev-btn"
+              class="mp3-container__device__body__bottons-wrap__prev-btn--hover"
+            ></div>
+            <div
               id="play-btn"
               class="mp3-container__device__body__bottons-wrap__play-btn--hover"
+            ></div>
+            <div
+              id="next-btn"
+              class="mp3-container__device__body__bottons-wrap__next-btn--hover"
             ></div>
             <div
               id="loop-btn"
               class="mp3-container__device__body__bottons-wrap__loop-btn--hover"
             ></div>
-            <div id="volume-wrap" class="mp3-container__device__body__bottons-wrap__volume-wrap">
+            <div
+              id="volume-wrap"
+              class="mp3-container__device__body__bottons-wrap__volume-wrap"
+            >
               <div
                 id="volume-btn"
                 class="mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn--hover"

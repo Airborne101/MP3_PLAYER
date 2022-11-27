@@ -10,9 +10,7 @@ INPUT_TEST.addEventListener("change", async (event) => {
     : (PLAY_LIST_INFO_OBJ_GLOBAL = resultObj);
 
   AUDIO.src === ""
-    ? playMusic(
-        PLAY_LIST_INFO_OBJ_GLOBAL[Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0]]
-      )
+    ? playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0])
     : null;
 });
 // ▲ 삭제 예정
@@ -20,7 +18,7 @@ INPUT_TEST.addEventListener("change", async (event) => {
 AUDIO.addEventListener("durationchange", (event) => {
   const resultArray = changeTimeAtOnce(event.target.duration);
   END_TIME.textContent = `${resultArray[0]}:${resultArray[1]}`;
-  TIMELINE.max = event.target.duration;
+  TIMELINE.max = setTimeline(event.target.duration);
   PLAY_BTN.classList.remove(
     "mp3-container__device__body__bottons-wrap__play-btn--hover"
   );
@@ -28,18 +26,18 @@ AUDIO.addEventListener("durationchange", (event) => {
     "mp3-container__device__body__bottons-wrap__pause-btn--hover"
   );
   DISK.classList.remove("mp3-container__device__head__disk__pause");
-  AUDIO.volume = VOLUME_RANGE.value * 0.01;
-  AUDIO.currentTime = 0;
+  AUDIO.volume = setVolume(VOLUME_RANGE.value);
+  AUDIO.currentTime = setCurrentTime(0);
 });
 
 AUDIO.addEventListener("timeupdate", (event) => {
   const returnArray = changeTimeToRealTime(event.target.currentTime);
   START_TIME.textContent = `${returnArray[0]}:${returnArray[1]}`;
-  TIMELINE.value = event.target.currentTime;
+  TIMELINE.value = setTimeline(event.target.currentTime);
 });
 
 AUDIO.addEventListener("ended", () => {
-  TIMELINE.value = 0;
+  TIMELINE.value = setTimeline(0);
   START_TIME.textContent = `00:00`;
   PLAY_BTN.classList.add(
     "mp3-container__device__body__bottons-wrap__play-btn--hover"
@@ -51,10 +49,10 @@ AUDIO.addEventListener("ended", () => {
 });
 
 TIMELINE.addEventListener("input", (event) => {
-  AUDIO.currentTime = chnageAudioCurrentTime(event.target.value, AUDIO);
+  AUDIO.currentTime = setCurrentTime(event.target.value);
 });
 
-PLAY_BTN.addEventListener("click", (event) => {
+PLAY_BTN.addEventListener("click", () => {
   AUDIO.src !== "" && AUDIO.paused === false
     ? AUDIO.pause()
     : AUDIO.paused === true
@@ -69,6 +67,24 @@ PLAY_BTN.addEventListener("click", (event) => {
   DISK.classList.toggle("mp3-container__device__head__disk__pause");
 });
 
+PREV_BTN.addEventListener("click", (event) => {
+  const prevMusic = changeMusic(
+    event.target.id,
+    PLAY_LIST_INFO_OBJ_GLOBAL,
+    AUDIO.id
+  );
+  prevMusic !== undefined ? playMusic(prevMusic) : null;
+});
+
+NEXT_BTN.addEventListener("click", (event) => {
+  const nextMusic = changeMusic(
+    event.target.id,
+    PLAY_LIST_INFO_OBJ_GLOBAL,
+    AUDIO.id
+  );
+  nextMusic !== undefined ? playMusic(nextMusic) : null;
+});
+
 LOOP_BTN.addEventListener("click", () => {
   LOOP_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__loop-btn--hover"
@@ -76,11 +92,11 @@ LOOP_BTN.addEventListener("click", () => {
   LOOP_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__loop-btn-active--hover"
   );
-  AUDIO.loop = AUDIO.loop === true ? false : true;
+  AUDIO.loop = setLoop(!AUDIO.loop);
 });
 
 VOLUME_BTN.addEventListener("click", () => {
-  AUDIO.muted = AUDIO.muted === true ? false : true;
+  AUDIO.muted = setMuted(!AUDIO.muted);
   VOLUME_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn--hover"
   );
@@ -90,15 +106,19 @@ VOLUME_BTN.addEventListener("click", () => {
 });
 
 VOLUME_BTN.addEventListener("mouseenter", () => {
-  VOLUME_RANGE.classList.remove("mp3-container__device__body__bottons-wrap__volume-wrap__volume-range--hidden");
-})
+  VOLUME_RANGE.classList.remove(
+    "mp3-container__device__body__bottons-wrap__volume-wrap__volume-range--hidden"
+  );
+});
 
 VOLUME_WRAP.addEventListener("mouseleave", () => {
-  VOLUME_RANGE.classList.add("mp3-container__device__body__bottons-wrap__volume-wrap__volume-range--hidden");
-})
+  VOLUME_RANGE.classList.add(
+    "mp3-container__device__body__bottons-wrap__volume-wrap__volume-range--hidden"
+  );
+});
 
 VOLUME_RANGE.addEventListener("input", (event) => {
-  AUDIO.volume = event.target.value * 0.01;
+  AUDIO.volume = setVolume(event.target.value);
   if (AUDIO.volume === 0) {
     VOLUME_BTN.classList.add(
       "mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn-mute--hover"
@@ -106,7 +126,7 @@ VOLUME_RANGE.addEventListener("input", (event) => {
     VOLUME_BTN.classList.remove(
       "mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn--hover"
     );
-    AUDIO.muted = true;
+    AUDIO.muted = setMuted(true);
   } else {
     VOLUME_BTN.classList.add(
       "mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn--hover"
@@ -114,6 +134,6 @@ VOLUME_RANGE.addEventListener("input", (event) => {
     VOLUME_BTN.classList.remove(
       "mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn-mute--hover"
     );
-    AUDIO.muted = false;
+    AUDIO.muted = setMuted(false);
   }
 });

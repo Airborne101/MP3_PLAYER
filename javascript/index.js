@@ -7,8 +7,10 @@ let PLAY_LIST_INFO_OBJ_GLOBAL = null;
 // ▲ 전역변수
 
 const JSMEDIATAGES = window.jsmediatags;
-const AUDIO = document.getElementById("audio");
+const AUDIO = document.querySelector(".audio");
 const PLAY_BTN = document.getElementById("play-btn");
+const PREV_BTN = document.getElementById("prev-btn");
+const NEXT_BTN = document.getElementById("next-btn");
 const START_TIME = document.getElementById("start-time");
 const END_TIME = document.getElementById("end-time");
 const BACKGROUND = document.getElementById("background");

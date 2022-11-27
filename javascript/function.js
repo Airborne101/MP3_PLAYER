@@ -37,8 +37,8 @@ const createPlayList = function (fileList) {
           )})`;
 
           musicInfoObj.title =
-            tag.tags.title.length > 30
-              ? tag.tags.title.substring(0, 30) + "..."
+            tag.tags.title.length > 25
+              ? tag.tags.title.substring(0, 25) + "..."
               : tag.tags.title;
 
           musicInfoObj.artist =
@@ -58,13 +58,25 @@ const createPlayList = function (fileList) {
   });
 };
 
-const playMusic = function (targetObj) {
+const playMusic = function (objId) {
+  const targetObj = PLAY_LIST_INFO_OBJ_GLOBAL[objId];
+
+  AUDIO.id = objId;
   AUDIO.src = targetObj.audioUrl;
   BACKGROUND.style.backgroundImage = targetObj.imgUrl;
   DISK.style.backgroundImage = targetObj.imgUrl;
   TITLE.textContent = targetObj.title;
   ARTIST.textContent = targetObj.artist;
   AUDIO.play();
+};
+
+const changeMusic = function (eventId, fileList, id) {
+  if (PLAY_LIST_INFO_OBJ_GLOBAL === null || AUDIO.id === "") return;
+  const musicIndex =
+    eventId === "prev-btn"
+      ? Object.keys(fileList).indexOf(id) - 1
+      : Object.keys(fileList).indexOf(id) + 1;
+  return Object.keys(fileList)[musicIndex];
 };
 
 const changeTimeAtOnce = function (time) {
@@ -87,7 +99,22 @@ const changeTimeToRealTime = function (time) {
   return [currentMinute, currentSceond];
 };
 
-const chnageAudioCurrentTime = function (time, audio) {
-  if (audio === null) return;
+const setCurrentTime = function (time) {
   return time;
+};
+
+const setTimeline = function (value) {
+  return value;
+};
+
+const setVolume = function (value) {
+  return value * 0.01;
+};
+
+const setLoop = function (loop) {
+  return loop;
+};
+
+const setMuted = function (mute) {
+  return mute;
 };

@@ -45,7 +45,7 @@ input[type=range]::-webkit-slider-thumb {
   left: 40%;
   border-radius: 1rem;
   box-shadow: black 0rem 0.5rem 1rem;
-  border: 0.1rem solid black;
+  border: 0.15rem solid black;
   background-color: white;
 }
 .mp3-container__device__head {
@@ -76,12 +76,12 @@ input[type=range]::-webkit-slider-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-animation: rotate_image 10s linear infinite;
-          animation: rotate_image 10s linear infinite;
+  -webkit-animation: rotate_image 13s linear infinite;
+          animation: rotate_image 13s linear infinite;
   transform-origin: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
-  border: 0.1rem solid black;
+  border: 0.15rem solid black;
 }
 @-webkit-keyframes rotate_image {
   100% {
@@ -98,7 +98,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 1.5rem;
   background-color: white;
   border-radius: 2rem;
-  border: 0.1rem solid black;
+  border: 0.2rem solid black;
 }
 .mp3-container__device__head__disk__pause {
   -webkit-animation-play-state: paused;
@@ -158,6 +158,16 @@ input[type=range]::-webkit-slider-thumb {
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
+}
+.mp3-container__device__body__bottons-wrap__prev-btn--hover {
+  width: 5rem;
+  height: 5rem;
+  background-color: blue;
+}
+.mp3-container__device__body__bottons-wrap__next-btn--hover {
+  width: 5rem;
+  height: 5rem;
+  background-color: green;
 }
 .mp3-container__device__body__bottons-wrap__pause-btn--hover {
   width: 5rem;
