@@ -37,15 +37,25 @@ AUDIO.addEventListener("timeupdate", (event) => {
 });
 
 AUDIO.addEventListener("ended", () => {
-  TIMELINE.value = setTimeline(0);
-  START_TIME.textContent = `00:00`;
-  PLAY_BTN.classList.add(
-    "mp3-container__device__body__bottons-wrap__play-btn--hover"
+  const nextMusic = changeMusic(
+    "next-btn",
+    PLAY_LIST_INFO_OBJ_GLOBAL,
+    AUDIO.id
   );
-  PLAY_BTN.classList.remove(
-    "mp3-container__device__body__bottons-wrap__pause-btn--hover"
-  );
-  DISK.classList.add("mp3-container__device__head__disk__pause");
+
+  if (nextMusic === undefined) {
+    TIMELINE.value = setTimeline(0);
+    START_TIME.textContent = `00:00`;
+    PLAY_BTN.classList.add(
+      "mp3-container__device__body__bottons-wrap__play-btn--hover"
+    );
+    PLAY_BTN.classList.remove(
+      "mp3-container__device__body__bottons-wrap__pause-btn--hover"
+    );
+    DISK.classList.add("mp3-container__device__head__disk__pause");
+  } else {
+    playMusic(nextMusic);
+  }
 });
 
 TIMELINE.addEventListener("input", (event) => {

@@ -3,7 +3,11 @@ const fileListCheck = function (fileList) {
 
   return new Promise((resolve, reject) => {
     for (let i = 0; i < fileList.length; i++) {
-      if (fileList[i].name.split(".")[1] !== ("mp3" || "mp4" || "wav")) {
+      if (
+        fileList[i].name.split(".")[1] !== "mp3" &&
+        fileList[i].name.split(".")[1] !== "mp4" &&
+        fileList[i].name.split(".")[1] !== "wav"
+      ) {
         alert("mp3, mp4, wav이 아닌 파일은 등록할 수 없습니다.");
         result = false;
         break;
@@ -15,7 +19,7 @@ const fileListCheck = function (fileList) {
 };
 
 const createPlayList = function (fileList) {
-  const musicInfoObj = {};
+  let musicInfoObj = {};
   const returnObj = {};
 
   return new Promise((resolve, reject) => {
@@ -47,6 +51,7 @@ const createPlayList = function (fileList) {
               : tag.tags.artist;
 
           returnObj[Date.now()] = musicInfoObj;
+          musicInfoObj = {};
 
           resolve(returnObj);
         },
@@ -71,7 +76,7 @@ const playMusic = function (objId) {
 };
 
 const changeMusic = function (eventId, fileList, id) {
-  if (PLAY_LIST_INFO_OBJ_GLOBAL === null || AUDIO.id === "") return;
+  if (fileList === null || id === "") return;
   const musicIndex =
     eventId === "prev-btn"
       ? Object.keys(fileList).indexOf(id) - 1
