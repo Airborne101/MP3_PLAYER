@@ -107,7 +107,6 @@ input[type=range]::-webkit-slider-thumb {
 .mp3-container__device__body {
   width: 25rem;
   height: 15rem;
-  background-color: pink;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
@@ -117,7 +116,6 @@ input[type=range]::-webkit-slider-thumb {
   height: 5rem;
   display: flex;
   justify-content: center;
-  background-color: aqua;
 }
 .mp3-container__device__body__track-wrap__timeline {
   width: 22rem;
@@ -139,7 +137,6 @@ input[type=range]::-webkit-slider-thumb {
   position: relative;
   width: 25rem;
   height: 9rem;
-  background-color: red;
   display: flex;
   justify-content: center;
 }
@@ -265,6 +262,42 @@ input[type=range]::-webkit-slider-thumb {
 .mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover:hover {
   transition: all 0.5s;
   background-image: url("/img/loop.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+.mp3-container__device__body__bottons-wrap__shuffle-btn--hover {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/img/shuffle-btn.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: -0.1rem;
+  left: 4.5rem;
+  cursor: pointer;
+}
+.mp3-container__device__body__bottons-wrap__shuffle-btn--hover:hover {
+  transition: all 0.5s;
+  background-image: url("/img/shuffle-btn-active.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+.mp3-container__device__body__bottons-wrap__shuffle-btn-active--hover {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/img/shuffle-btn-active.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: -0.1rem;
+  left: 4.5rem;
+  cursor: pointer;
+}
+.mp3-container__device__body__bottons-wrap__shuffle-btn-active--hover:hover {
+  transition: all 0.5s;
+  background-image: url("/img/shuffle-btn.png");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;

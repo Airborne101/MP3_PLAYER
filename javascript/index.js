@@ -19,6 +19,7 @@ const TITLE = document.getElementById("title");
 const ARTIST = document.getElementById("artist");
 const TIMELINE = document.getElementById("timeline");
 const LOOP_BTN = document.getElementById("loop-btn");
+const SHUFFLE_BTN = document.getElementById("shuffle-btn");
 const VOLUME_WRAP = document.getElementById("volume-wrap");
 const VOLUME_BTN = document.getElementById("volume-btn");
 const VOLUME_RANGE = document.getElementById("volume-range");

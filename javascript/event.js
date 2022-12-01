@@ -134,6 +134,15 @@ LOOP_BTN.addEventListener("click", () => {
 
 });
 
+SHUFFLE_BTN.addEventListener("click", () => {
+  SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn-active--hover");
+
+  SHUFFLE_BTN.getAttribute("data-shuffle") === null
+  ? SHUFFLE_BTN.setAttribute("data-shuffle", true)
+  : SHUFFLE_BTN.removeAttribute("data-shuffle");
+  
+});
+
 VOLUME_BTN.addEventListener("click", () => {
   AUDIO.muted = setMuted(!AUDIO.muted);
   VOLUME_BTN.classList.toggle(
