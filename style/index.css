@@ -212,7 +212,8 @@ input[type=range]::-webkit-slider-thumb {
   background-size: contain;
   cursor: pointer;
 }
-.mp3-container__device__body__bottons-wrap__loop-btn--hover {
+.mp3-container__device__body__bottons-wrap__loop-btn {
+  transition: all 0.5s;
   width: 2rem;
   height: 2rem;
   background-image: url("/img/loop.png");
@@ -223,14 +224,8 @@ input[type=range]::-webkit-slider-thumb {
   left: 1.5rem;
   cursor: pointer;
 }
-.mp3-container__device__body__bottons-wrap__loop-btn--hover:hover {
+.mp3-container__device__body__bottons-wrap__loop-btn-active {
   transition: all 0.5s;
-  background-image: url("/img/loop_active.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-.mp3-container__device__body__bottons-wrap__loop-btn-active--hover {
   width: 2rem;
   height: 2rem;
   background-image: url("/img/loop_active.png");
@@ -241,14 +236,8 @@ input[type=range]::-webkit-slider-thumb {
   left: 1.5rem;
   cursor: pointer;
 }
-.mp3-container__device__body__bottons-wrap__loop-btn-active--hover:hover {
+.mp3-container__device__body__bottons-wrap__loop-one-btn-active {
   transition: all 0.5s;
-  background-image: url("/img/loop_one_active.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-.mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover {
   width: 2rem;
   height: 2rem;
   background-image: url("/img/loop_one_active.png");
@@ -259,14 +248,8 @@ input[type=range]::-webkit-slider-thumb {
   left: 1.5rem;
   cursor: pointer;
 }
-.mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover:hover {
+.mp3-container__device__body__bottons-wrap__shuffle-btn {
   transition: all 0.5s;
-  background-image: url("/img/loop.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-.mp3-container__device__body__bottons-wrap__shuffle-btn--hover {
   width: 2rem;
   height: 2rem;
   background-image: url("/img/shuffle-btn.png");
@@ -277,14 +260,8 @@ input[type=range]::-webkit-slider-thumb {
   left: 4.5rem;
   cursor: pointer;
 }
-.mp3-container__device__body__bottons-wrap__shuffle-btn--hover:hover {
+.mp3-container__device__body__bottons-wrap__shuffle-btn-active {
   transition: all 0.5s;
-  background-image: url("/img/shuffle-btn-active.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-.mp3-container__device__body__bottons-wrap__shuffle-btn-active--hover {
   width: 2rem;
   height: 2rem;
   background-image: url("/img/shuffle-btn-active.png");
@@ -293,13 +270,6 @@ input[type=range]::-webkit-slider-thumb {
   position: absolute;
   bottom: -0.1rem;
   left: 4.5rem;
-  cursor: pointer;
-}
-.mp3-container__device__body__bottons-wrap__shuffle-btn-active--hover:hover {
-  transition: all 0.5s;
-  background-image: url("/img/shuffle-btn.png");
-  background-repeat: no-repeat;
-  background-size: contain;
   cursor: pointer;
 }
 .mp3-container__device__body__bottons-wrap__volume-wrap {

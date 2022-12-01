@@ -102,40 +102,40 @@ NEXT_BTN.addEventListener("click", (event) => {
 LOOP_BTN.addEventListener("click", () => {
   // loop all
   if (LOOP_BTN.getAttribute("data-loopall") === null) {
-    LOOP_BTN.classList.remove(
-      "mp3-container__device__body__bottons-wrap__loop-btn--hover"
+    LOOP_BTN.classList.toggle(
+      "mp3-container__device__body__bottons-wrap__loop-btn"
     );
-    LOOP_BTN.classList.add(
-      "mp3-container__device__body__bottons-wrap__loop-btn-active--hover"
+    LOOP_BTN.classList.toggle(
+      "mp3-container__device__body__bottons-wrap__loop-btn-active"
     );
     LOOP_BTN.setAttribute("data-loopall", true);
   }
   // loop one
   else if (LOOP_BTN.getAttribute("data-loopall") && AUDIO.loop === false) {
-    LOOP_BTN.classList.remove(
-      "mp3-container__device__body__bottons-wrap__loop-btn-active--hover"
+    LOOP_BTN.classList.toggle(
+      "mp3-container__device__body__bottons-wrap__loop-btn-active"
     );
-    LOOP_BTN.classList.add(
-      "mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover"
+    LOOP_BTN.classList.toggle(
+      "mp3-container__device__body__bottons-wrap__loop-one-btn-active"
     )
     AUDIO.loop = setLoop(!AUDIO.loop);
   }
   // none loop
-  else if (LOOP_BTN.getAttribute("data-loopall") && AUDIO.loop === true) {
+  else {
     AUDIO.loop = setLoop(!AUDIO.loop);
     LOOP_BTN.removeAttribute("data-loopall");
-    LOOP_BTN.classList.remove(
-      "mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover"
+    LOOP_BTN.classList.toggle(
+      "mp3-container__device__body__bottons-wrap__loop-one-btn-active"
     )
-    LOOP_BTN.classList.add(
-      "mp3-container__device__body__bottons-wrap__loop-btn--hover"
+    LOOP_BTN.classList.toggle(
+      "mp3-container__device__body__bottons-wrap__loop-btn"
     );
   }
 
 });
 
 SHUFFLE_BTN.addEventListener("click", () => {
-  SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn-active--hover");
+  SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn-active");
 
   SHUFFLE_BTN.getAttribute("data-shuffle") === null
   ? SHUFFLE_BTN.setAttribute("data-shuffle", true)
