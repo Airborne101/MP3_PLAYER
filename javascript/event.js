@@ -43,7 +43,7 @@ AUDIO.addEventListener("ended", () => {
     AUDIO.id
   );
 
-  if (nextMusic === undefined) {
+  if (nextMusic === undefined && LOOP_BTN.getAttribute("data-loopall") === null) {
     TIMELINE.value = setTimeline(0);
     START_TIME.textContent = `00:00`;
     PLAY_BTN.classList.add(
@@ -53,7 +53,11 @@ AUDIO.addEventListener("ended", () => {
       "mp3-container__device__body__bottons-wrap__pause-btn--hover"
     );
     DISK.classList.add("mp3-container__device__head__disk__pause");
-  } else {
+  }
+  else if (nextMusic === undefined && LOOP_BTN.getAttribute("data-loopall")) {
+    playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0]);
+  }
+  else {
     playMusic(nextMusic);
   }
 });
@@ -66,8 +70,8 @@ PLAY_BTN.addEventListener("click", () => {
   AUDIO.src !== "" && AUDIO.paused === false
     ? AUDIO.pause()
     : AUDIO.paused === true
-    ? AUDIO.play()
-    : null;
+      ? AUDIO.play()
+      : null;
   PLAY_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__play-btn--hover"
   );
@@ -96,13 +100,38 @@ NEXT_BTN.addEventListener("click", (event) => {
 });
 
 LOOP_BTN.addEventListener("click", () => {
-  LOOP_BTN.classList.toggle(
-    "mp3-container__device__body__bottons-wrap__loop-btn--hover"
-  );
-  LOOP_BTN.classList.toggle(
-    "mp3-container__device__body__bottons-wrap__loop-btn-active--hover"
-  );
-  AUDIO.loop = setLoop(!AUDIO.loop);
+  // loop all
+  if (LOOP_BTN.getAttribute("data-loopall") === null) {
+    LOOP_BTN.classList.remove(
+      "mp3-container__device__body__bottons-wrap__loop-btn--hover"
+    );
+    LOOP_BTN.classList.add(
+      "mp3-container__device__body__bottons-wrap__loop-btn-active--hover"
+    );
+    LOOP_BTN.setAttribute("data-loopall", true);
+  }
+  // loop one
+  else if (LOOP_BTN.getAttribute("data-loopall") && AUDIO.loop === false) {
+    LOOP_BTN.classList.remove(
+      "mp3-container__device__body__bottons-wrap__loop-btn-active--hover"
+    );
+    LOOP_BTN.classList.add(
+      "mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover"
+    )
+    AUDIO.loop = setLoop(!AUDIO.loop);
+  }
+  // none loop
+  else if (LOOP_BTN.getAttribute("data-loopall") && AUDIO.loop === true) {
+    AUDIO.loop = setLoop(!AUDIO.loop);
+    LOOP_BTN.removeAttribute("data-loopall");
+    LOOP_BTN.classList.remove(
+      "mp3-container__device__body__bottons-wrap__loop-one-btn-active--hover"
+    )
+    LOOP_BTN.classList.add(
+      "mp3-container__device__body__bottons-wrap__loop-btn--hover"
+    );
+  }
+
 });
 
 VOLUME_BTN.addEventListener("click", () => {

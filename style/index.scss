@@ -248,7 +248,7 @@ input[type="range"]::-webkit-slider-thumb {
         &__loop-btn--hover {
           width: 2rem;
           height: 2rem;
-          background-image: url("/img/loop_disable.png");
+          background-image: url("/img/loop.png");
           background-repeat: no-repeat;
           background-size: contain;
           position: absolute;
@@ -279,7 +279,27 @@ input[type="range"]::-webkit-slider-thumb {
 
         &__loop-btn-active--hover:hover {
           transition: all 0.5s;
-          background-image: url("/img/loop_disable.png");
+          background-image: url("/img/loop_one_active.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          cursor: pointer;
+        }
+
+        &__loop-one-btn-active--hover {
+          width: 2rem;
+          height: 2rem;
+          background-image: url("/img/loop_one_active.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          position: absolute;
+          bottom: 0rem;
+          left: 1.5rem;
+          cursor: pointer;
+        }
+
+        &__loop-one-btn-active--hover:hover {
+          transition: all 0.5s;
+          background-image: url("/img/loop.png");
           background-repeat: no-repeat;
           background-size: contain;
           cursor: pointer;
