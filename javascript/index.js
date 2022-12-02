@@ -4,6 +4,7 @@ const INPUT_TEST = document.getElementById("test_input");
 
 // ▼ 전역변수
 let PLAY_LIST_INFO_OBJ_GLOBAL = null;
+let SHUFFLE_LIST_ARRAY_GLOBAL = null;
 // ▲ 전역변수
 
 const JSMEDIATAGES = window.jsmediatags;

@@ -125,3 +125,13 @@ const setLoop = function (loop) {
 const setMuted = function (mute) {
   return mute;
 };
+
+const createShuffleArray = function(obj) {
+  return obj !== null
+  ? Object.keys(obj).sort(() => 0.5 - Math.random())
+  : null
+};
+
+const setNull = function() {
+  return null;
+};

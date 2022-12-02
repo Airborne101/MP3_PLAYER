@@ -138,9 +138,14 @@ SHUFFLE_BTN.addEventListener("click", () => {
   SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn-active");
   SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn");
 
-  SHUFFLE_BTN.getAttribute("data-shuffle") === null
-  ? SHUFFLE_BTN.setAttribute("data-shuffle", true)
-  : SHUFFLE_BTN.removeAttribute("data-shuffle");
+  if(SHUFFLE_BTN.getAttribute("data-shuffle") === null) {
+    SHUFFLE_BTN.setAttribute("data-shuffle", true);
+    SHUFFLE_LIST_ARRAY_GLOBAL = createShuffleArray(PLAY_LIST_INFO_OBJ_GLOBAL);
+  }
+  else {
+    SHUFFLE_BTN.removeAttribute("data-shuffle");
+    SHUFFLE_LIST_ARRAY_GLOBAL = setNull();
+  }
   
 });
 
