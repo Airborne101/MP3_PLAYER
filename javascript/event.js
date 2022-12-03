@@ -100,38 +100,37 @@ NEXT_BTN.addEventListener("click", (event) => {
 });
 
 LOOP_BTN.addEventListener("click", () => {
-  // loop all
-  if (LOOP_BTN.getAttribute("data-loopall") === null) {
-    LOOP_BTN.classList.toggle(
+  // non loop
+  if (AUDIO.loop === false && !LOOP_BTN.getAttribute("data-loopall")) {
+    AUDIO.loop = setLoop(!AUDIO.loop);
+    LOOP_BTN.classList.remove(
       "mp3-container__device__body__bottons-wrap__loop-btn"
     );
-    LOOP_BTN.classList.toggle(
-      "mp3-container__device__body__bottons-wrap__loop-btn-active"
+    LOOP_BTN.classList.add(
+      "mp3-container__device__body__bottons-wrap__loop-one-btn-active"
     );
-    LOOP_BTN.setAttribute("data-loopall", true);
   }
   // loop one
-  else if (LOOP_BTN.getAttribute("data-loopall") && AUDIO.loop === false) {
-    LOOP_BTN.classList.toggle(
+  else if (AUDIO.loop === true) {
+    AUDIO.loop = setLoop(!AUDIO.loop);
+    LOOP_BTN.setAttribute("data-loopall", true);
+    LOOP_BTN.classList.remove(
+      "mp3-container__device__body__bottons-wrap__loop-one-btn-active"
+    );
+    LOOP_BTN.classList.add(
       "mp3-container__device__body__bottons-wrap__loop-btn-active"
     );
-    LOOP_BTN.classList.toggle(
-      "mp3-container__device__body__bottons-wrap__loop-one-btn-active"
-    )
-    AUDIO.loop = setLoop(!AUDIO.loop);
   }
-  // none loop
-  else {
-    AUDIO.loop = setLoop(!AUDIO.loop);
+  // loop all
+  else if (AUDIO.loop === false && LOOP_BTN.getAttribute("data-loopall")) {
     LOOP_BTN.removeAttribute("data-loopall");
-    LOOP_BTN.classList.toggle(
-      "mp3-container__device__body__bottons-wrap__loop-one-btn-active"
-    )
-    LOOP_BTN.classList.toggle(
+    LOOP_BTN.classList.remove(
+      "mp3-container__device__body__bottons-wrap__loop-btn-active"
+    );
+    LOOP_BTN.classList.add(
       "mp3-container__device__body__bottons-wrap__loop-btn"
     );
   }
-
 });
 
 SHUFFLE_BTN.addEventListener("click", () => {
