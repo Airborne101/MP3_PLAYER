@@ -42,8 +42,11 @@ AUDIO.addEventListener("ended", () => {
     PLAY_LIST_INFO_OBJ_GLOBAL,
     AUDIO.id
   );
-
-  if (nextMusic === undefined && LOOP_BTN.getAttribute("data-loopall") === null) {
+  
+  if( Number.isNaN(parseInt(nextMusic)) && LOOP_BTN.getAttribute("data-loopall") ) {
+    playMusic(createLoop(nextMusic, PLAY_LIST_INFO_OBJ_GLOBAL));
+  }
+  else if( Number.isNaN(parseInt(nextMusic)) && !LOOP_BTN.getAttribute("data-loopall") ) {
     TIMELINE.value = setTimeline(0);
     START_TIME.textContent = `00:00`;
     PLAY_BTN.classList.add(
@@ -53,9 +56,6 @@ AUDIO.addEventListener("ended", () => {
       "mp3-container__device__body__bottons-wrap__pause-btn--hover"
     );
     DISK.classList.add("mp3-container__device__head__disk__pause");
-  }
-  else if (nextMusic === undefined && LOOP_BTN.getAttribute("data-loopall")) {
-    playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0]);
   }
   else {
     playMusic(nextMusic);
@@ -87,7 +87,10 @@ PREV_BTN.addEventListener("click", (event) => {
     PLAY_LIST_INFO_OBJ_GLOBAL,
     AUDIO.id
   );
-  prevMusic !== undefined ? playMusic(prevMusic) : null;
+
+  Number.isNaN(parseInt(prevMusic)) && LOOP_BTN.getAttribute("data-loopall")
+  ? playMusic(createLoop(prevMusic, PLAY_LIST_INFO_OBJ_GLOBAL))
+  : playMusic(prevMusic);
 });
 
 NEXT_BTN.addEventListener("click", (event) => {
@@ -96,7 +99,10 @@ NEXT_BTN.addEventListener("click", (event) => {
     PLAY_LIST_INFO_OBJ_GLOBAL,
     AUDIO.id
   );
-  nextMusic !== undefined ? playMusic(nextMusic) : null;
+
+  Number.isNaN(parseInt(nextMusic)) && LOOP_BTN.getAttribute("data-loopall")
+  ? playMusic(createLoop(nextMusic, PLAY_LIST_INFO_OBJ_GLOBAL))
+  : playMusic(nextMusic);
 });
 
 LOOP_BTN.addEventListener("click", () => {

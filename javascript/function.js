@@ -65,6 +65,7 @@ const createPlayList = function (fileList) {
 };
 
 const playMusic = function (objId) {
+  if(Number.isNaN(parseInt(objId))) return;
   const targetObj = PLAY_LIST_INFO_OBJ_GLOBAL[objId];
 
   AUDIO.id = objId;
@@ -77,14 +78,26 @@ const playMusic = function (objId) {
 };
 
 const changeMusic = function (eventId, fileList, id) {
-  if (fileList === null || id === "") return;
+  if (fileList === null) return;
+
   const fileListArray = Object.keys(fileList);
+
   const musicIndex =
     eventId === "prev-btn"
       ? fileListArray.indexOf(id) - 1
       : fileListArray.indexOf(id) + 1;
-  return fileListArray[musicIndex];
+
+  return fileListArray[musicIndex] !== undefined
+  ? fileListArray[musicIndex]
+  : eventId;
 };
+
+const createLoop = function(direction, fileList) {
+  const fileListArray = Object.keys(fileList); 
+  return direction === "prev-btn"
+  ? fileListArray[fileListArray.length - 1]
+  : fileListArray[0];
+}
 
 const changeTimeAtOnce = function (time) {
   let minute = parseInt(time / 60);
