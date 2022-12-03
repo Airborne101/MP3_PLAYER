@@ -40,13 +40,25 @@ AUDIO.addEventListener("ended", () => {
   const nextMusic = changeMusic(
     "next-btn",
     PLAY_LIST_INFO_OBJ_GLOBAL,
-    AUDIO.id
+    AUDIO.id,
+    SHUFFLE_LIST_ARRAY_GLOBAL
   );
-  
-  if( Number.isNaN(parseInt(nextMusic)) && LOOP_BTN.getAttribute("data-loopall") ) {
-    playMusic(createLoop(nextMusic, PLAY_LIST_INFO_OBJ_GLOBAL));
-  }
-  else if( Number.isNaN(parseInt(nextMusic)) && !LOOP_BTN.getAttribute("data-loopall") ) {
+
+  if (
+    Number.isNaN(parseInt(nextMusic)) &&
+    LOOP_BTN.getAttribute("data-loopall")
+  ) {
+    playMusic(
+      createLoop(
+        nextMusic,
+        PLAY_LIST_INFO_OBJ_GLOBAL,
+        SHUFFLE_LIST_ARRAY_GLOBAL
+      )
+    );
+  } else if (
+    Number.isNaN(parseInt(nextMusic)) &&
+    !LOOP_BTN.getAttribute("data-loopall")
+  ) {
     TIMELINE.value = setTimeline(0);
     START_TIME.textContent = `00:00`;
     PLAY_BTN.classList.add(
@@ -56,8 +68,7 @@ AUDIO.addEventListener("ended", () => {
       "mp3-container__device__body__bottons-wrap__pause-btn--hover"
     );
     DISK.classList.add("mp3-container__device__head__disk__pause");
-  }
-  else {
+  } else {
     playMusic(nextMusic);
   }
 });
@@ -70,8 +81,8 @@ PLAY_BTN.addEventListener("click", () => {
   AUDIO.src !== "" && AUDIO.paused === false
     ? AUDIO.pause()
     : AUDIO.paused === true
-      ? AUDIO.play()
-      : null;
+    ? AUDIO.play()
+    : null;
   PLAY_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__play-btn--hover"
   );
@@ -85,24 +96,38 @@ PREV_BTN.addEventListener("click", (event) => {
   const prevMusic = changeMusic(
     event.target.id,
     PLAY_LIST_INFO_OBJ_GLOBAL,
-    AUDIO.id
+    AUDIO.id,
+    SHUFFLE_LIST_ARRAY_GLOBAL
   );
 
   Number.isNaN(parseInt(prevMusic)) && LOOP_BTN.getAttribute("data-loopall")
-  ? playMusic(createLoop(prevMusic, PLAY_LIST_INFO_OBJ_GLOBAL))
-  : playMusic(prevMusic);
+    ? playMusic(
+        createLoop(
+          prevMusic,
+          PLAY_LIST_INFO_OBJ_GLOBAL,
+          SHUFFLE_LIST_ARRAY_GLOBAL
+        )
+      )
+    : playMusic(prevMusic);
 });
 
 NEXT_BTN.addEventListener("click", (event) => {
   const nextMusic = changeMusic(
     event.target.id,
     PLAY_LIST_INFO_OBJ_GLOBAL,
-    AUDIO.id
+    AUDIO.id,
+    SHUFFLE_LIST_ARRAY_GLOBAL
   );
 
   Number.isNaN(parseInt(nextMusic)) && LOOP_BTN.getAttribute("data-loopall")
-  ? playMusic(createLoop(nextMusic, PLAY_LIST_INFO_OBJ_GLOBAL))
-  : playMusic(nextMusic);
+    ? playMusic(
+        createLoop(
+          nextMusic,
+          PLAY_LIST_INFO_OBJ_GLOBAL,
+          SHUFFLE_LIST_ARRAY_GLOBAL
+        )
+      )
+    : playMusic(nextMusic);
 });
 
 LOOP_BTN.addEventListener("click", () => {
@@ -140,18 +165,23 @@ LOOP_BTN.addEventListener("click", () => {
 });
 
 SHUFFLE_BTN.addEventListener("click", () => {
-  SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn-active");
-  SHUFFLE_BTN.classList.toggle("mp3-container__device__body__bottons-wrap__shuffle-btn");
+  SHUFFLE_BTN.classList.toggle(
+    "mp3-container__device__body__bottons-wrap__shuffle-btn-active"
+  );
+  SHUFFLE_BTN.classList.toggle(
+    "mp3-container__device__body__bottons-wrap__shuffle-btn"
+  );
 
-  if(SHUFFLE_BTN.getAttribute("data-shuffle") === null) {
+  if (SHUFFLE_BTN.getAttribute("data-shuffle") === null) {
     SHUFFLE_BTN.setAttribute("data-shuffle", true);
-    SHUFFLE_LIST_ARRAY_GLOBAL = createShuffleArray(PLAY_LIST_INFO_OBJ_GLOBAL);
-  }
-  else {
+    SHUFFLE_LIST_ARRAY_GLOBAL = createShuffleArray(
+      PLAY_LIST_INFO_OBJ_GLOBAL,
+      AUDIO.id
+    );
+  } else {
     SHUFFLE_BTN.removeAttribute("data-shuffle");
     SHUFFLE_LIST_ARRAY_GLOBAL = setNull();
   }
-  
 });
 
 VOLUME_BTN.addEventListener("click", () => {

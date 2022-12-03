@@ -65,7 +65,7 @@ const createPlayList = function (fileList) {
 };
 
 const playMusic = function (objId) {
-  if(Number.isNaN(parseInt(objId))) return;
+  if (Number.isNaN(parseInt(objId))) return;
   const targetObj = PLAY_LIST_INFO_OBJ_GLOBAL[objId];
 
   AUDIO.id = objId;
@@ -77,10 +77,10 @@ const playMusic = function (objId) {
   AUDIO.play();
 };
 
-const changeMusic = function (eventId, fileList, id) {
+const changeMusic = function (eventId, fileList, id, shuffle) {
   if (fileList === null) return;
 
-  const fileListArray = Object.keys(fileList);
+  const fileListArray = shuffle !== null ? shuffle : Object.keys(fileList);
 
   const musicIndex =
     eventId === "prev-btn"
@@ -88,16 +88,16 @@ const changeMusic = function (eventId, fileList, id) {
       : fileListArray.indexOf(id) + 1;
 
   return fileListArray[musicIndex] !== undefined
-  ? fileListArray[musicIndex]
-  : eventId;
+    ? fileListArray[musicIndex]
+    : eventId;
 };
 
-const createLoop = function(direction, fileList) {
-  const fileListArray = Object.keys(fileList); 
+const createLoop = function (direction, fileList, shuffle) {
+  const fileListArray = shuffle !== null ? shuffle : Object.keys(fileList);
   return direction === "prev-btn"
-  ? fileListArray[fileListArray.length - 1]
-  : fileListArray[0];
-}
+    ? fileListArray[fileListArray.length - 1]
+    : fileListArray[0];
+};
 
 const changeTimeAtOnce = function (time) {
   let minute = parseInt(time / 60);
@@ -139,12 +139,15 @@ const setMuted = function (mute) {
   return mute;
 };
 
-const createShuffleArray = function(obj) {
-  return obj !== null
-  ? Object.keys(obj).sort(() => 0.5 - Math.random())
-  : null
+const createShuffleArray = function (fileList, audioId) {
+  if (fileList === null) return;
+  let shuffleArray = Object.keys(fileList).sort(() => 0.5 - Math.random());
+  shuffleArray.unshift(
+    ...shuffleArray.splice(shuffleArray.indexOf(audioId), 1)
+  );
+  return shuffleArray;
 };
 
-const setNull = function() {
+const setNull = function () {
   return null;
 };
