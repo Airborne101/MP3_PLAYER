@@ -140,7 +140,6 @@ const setMuted = function (mute) {
 };
 
 const createShuffleArray = function (fileList, audioId) {
-  if (fileList === null) return;
   let shuffleArray = Object.keys(fileList).sort(() => 0.5 - Math.random());
   shuffleArray.unshift(
     ...shuffleArray.splice(shuffleArray.indexOf(audioId), 1)

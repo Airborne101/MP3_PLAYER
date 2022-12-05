@@ -165,6 +165,8 @@ LOOP_BTN.addEventListener("click", () => {
 });
 
 SHUFFLE_BTN.addEventListener("click", () => {
+  if (PLAY_LIST_INFO_OBJ_GLOBAL === null) return;
+
   SHUFFLE_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__shuffle-btn-active"
   );
