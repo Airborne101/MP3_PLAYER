@@ -24,3 +24,8 @@ const SHUFFLE_BTN = document.getElementById("shuffle-btn");
 const VOLUME_WRAP = document.getElementById("volume-wrap");
 const VOLUME_BTN = document.getElementById("volume-btn");
 const VOLUME_RANGE = document.getElementById("volume-range");
+
+const PLAY_LIST_SPREAD = document.getElementById("play-list-spread");
+const PLAY_LIST_SPREAD_BAR = document.getElementById("play-list-spread-bar");
+const PLAY_LIST_FOLDED = document.getElementById("play-list-folded");
+const PLAY_LIST_FOLDED_BAR = document.getElementById("play-list-folded-bar");

@@ -226,3 +226,14 @@ VOLUME_RANGE.addEventListener("input", (event) => {
     AUDIO.muted = setMuted(false);
   }
 });
+
+PLAY_LIST_SPREAD_BAR.addEventListener("click", () => {
+  PLAY_LIST_SPREAD.classList.toggle("hidden-visibility");
+  PLAY_LIST_FOLDED.classList.toggle("hidden-visibility");
+});
+
+PLAY_LIST_FOLDED_BAR.addEventListener("click", () => {
+  PLAY_LIST_SPREAD.classList.toggle("hidden-visibility");
+  PLAY_LIST_FOLDED.classList.toggle("hidden-visibility");
+});
+

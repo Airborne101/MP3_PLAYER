@@ -6,6 +6,7 @@
 body {
   overflow-y: hidden;
   overflow-x: hidden;
+  font-family: "NanumPenScript-Regular";
 }
 
 input[type=range] {
@@ -29,10 +30,15 @@ input[type=range]::-webkit-slider-thumb {
   box-shadow: -100rem 0 0 100rem rgb(255, 109, 133);
 }
 
+.hidden-visibility {
+  transition: all 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .mp3-container {
   width: 100vw;
   height: 100vh;
-  font-family: "NanumPenScript-Regular";
 }
 .mp3-container__background {
   position: absolute;
@@ -328,4 +334,78 @@ input[type=range]::-webkit-slider-thumb {
 }
 .mp3-container__device__body__bottons-wrap__volume-wrap__volume-range--hidden {
   visibility: hidden;
+}
+
+.play-list-spread {
+  width: 25rem;
+  height: 100vh;
+  background-color: rgb(185, 78, 78);
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  text-align: center;
+}
+.play-list-spread__text {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  padding-left: 3.1rem;
+}
+.play-list-spread__bar {
+  width: 3rem;
+  height: 100vh;
+  background-color: white;
+  border-left: 0.15rem solid black;
+  border-right: 0.15rem solid black;
+  box-shadow: black 0rem 0.5rem 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  cursor: pointer;
+  z-index: 999;
+}
+.play-list-spread__bar__arrow {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/img/arrow_left.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.play-list-spread__inner {
+  width: 25rem;
+  height: 93.4vh;
+  background-color: beige;
+  position: absolute;
+  top: 6.6vh;
+}
+
+.play-list-folded {
+  width: 3rem;
+  height: 100vh;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+}
+.play-list-folded__bar {
+  width: 3rem;
+  height: 100vh;
+  background-color: white;
+  border-left: 0.15rem solid black;
+  box-shadow: black 0rem 0.5rem 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  cursor: pointer;
+}
+.play-list-folded__bar__arrow {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/img/arrow_right.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }/*# sourceMappingURL=index.css.map */
