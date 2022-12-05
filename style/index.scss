@@ -17,6 +17,11 @@ $radius-1rem: 1rem;
 // ▲ 폰트
 
 // ▼ 공통요소
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 input[type="range"] {
   -webkit-appearance: none;
   overflow: hidden;
@@ -35,7 +40,6 @@ input[type="range"]::-webkit-slider-thumb {
   width: 0.9rem;
   height: 0.9rem;
   background: black;
-  // box-shadow: -100vw 0 0 100vw rgb(255, 109, 133);
   box-shadow: -100rem 0 0 100rem rgb(255, 109, 133);
 }
 

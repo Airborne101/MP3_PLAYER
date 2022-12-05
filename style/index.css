@@ -3,6 +3,11 @@
   font-family: "NanumPenScript-Regular";
   src: url("/style/NanumPenScript-Regular.ttf") format("truetype");
 }
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   overflow: hidden;
