@@ -1,20 +1,3 @@
-// ▼ 삭제 예정
-INPUT_TEST.addEventListener("change", async (event) => {
-  const resultObj =
-    (await fileListCheck(event.target.files)) === true
-      ? await createPlayList(event.target.files)
-      : null;
-
-  PLAY_LIST_INFO_OBJ_GLOBAL !== null
-    ? Object.assign(PLAY_LIST_INFO_OBJ_GLOBAL, resultObj)
-    : (PLAY_LIST_INFO_OBJ_GLOBAL = resultObj);
-
-  AUDIO.src === ""
-    ? playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0])
-    : null;
-});
-// ▲ 삭제 예정
-
 AUDIO.addEventListener("durationchange", (event) => {
   const resultArray = changeTimeAtOnce(event.target.duration);
   END_TIME.textContent = `${resultArray[0]}:${resultArray[1]}`;
@@ -239,3 +222,21 @@ PLAY_LIST_FOLDED_BAR.addEventListener("click", () => {
   PLAY_LIST_FOLDED.classList.toggle("hidden-visibility");
 });
 
+ADD.addEventListener("change", async (event) => {
+  const resultObj =
+    (await fileListCheck(event.target.files)) === true
+      ? await createPlayList(event.target.files)
+      : null;
+
+  PLAY_LIST_INFO_OBJ_GLOBAL !== null
+    ? Object.assign(PLAY_LIST_INFO_OBJ_GLOBAL, resultObj)
+    : (PLAY_LIST_INFO_OBJ_GLOBAL = resultObj);
+
+  AUDIO.src === ""
+    ? playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0])
+    : null;
+});
+
+CLEAR.addEventListener("click", () => {
+  PLAY_LIST_INFO_OBJ_GLOBAL = setNull();
+})

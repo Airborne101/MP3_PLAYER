@@ -49,10 +49,14 @@
         </div>
       </div>
     </div>
-    <input id="test_input" type="file" style="position: absolute" multiple />
   </div>
   <div id="play-list-spread" class="play-list-spread">
     <h1 class="play-list-spread__text">Play List</h1>
+    <div class="play-list-spread__btn-wrap">
+      <label class="play-list-spread__btn-wrap__add--hover" for="add"></label>
+      <input type="file" id="add" style="display: none;" multiple>
+      <div id="clear" class="play-list-spread__btn-wrap__clear--hover"></div>
+    </div>
     <div id="play-list-spread-bar" class="play-list-spread__bar">
       <div class="play-list-spread__bar__arrow"></div>
     </div>

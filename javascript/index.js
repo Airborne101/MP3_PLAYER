@@ -1,7 +1,3 @@
-// ▼ 삭제 예정
-const INPUT_TEST = document.getElementById("test_input");
-// ▲ 삭제 예정
-
 // ▼ 전역변수
 let PLAY_LIST_INFO_OBJ_GLOBAL = null;
 let SHUFFLE_LIST_ARRAY_GLOBAL = null;
@@ -29,3 +25,5 @@ const PLAY_LIST_SPREAD = document.getElementById("play-list-spread");
 const PLAY_LIST_SPREAD_BAR = document.getElementById("play-list-spread-bar");
 const PLAY_LIST_FOLDED = document.getElementById("play-list-folded");
 const PLAY_LIST_FOLDED_BAR = document.getElementById("play-list-folded-bar");
+const ADD = document.getElementById("add");
+const CLEAR = document.getElementById("clear");

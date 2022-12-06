@@ -382,17 +382,55 @@ input[type="range"]::-webkit-slider-thumb {
 
 .play-list-spread {
   width: 25rem;
-  background-color: rgb(185, 78, 78);
   position: absolute;
   top: 0rem;
   right: 0rem;
   bottom: 0rem;
   text-align: center;
+  background-color: white;
 
   &__text {
     margin-top: 0.5rem;
     font-size: 1.5rem;
     padding-left: 3.1rem;
+  }
+
+  &__btn-wrap {
+    margin-top: 0.5rem;
+    padding-left: 3.2rem;
+    width: 21.83rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+
+    &__add--hover {
+      padding: 0.75rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      background-image: url("/img/add.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &__add--hover:hover {
+      transition: all 0.5s;
+      background-image: url("/img/add_hover.png");
+    }
+
+    &__clear--hover {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: 2rem;
+      background-image: url("/img/clear.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+    }
+
+    &__clear--hover:hover {
+      transition: all 0.5s;
+      background-image: url("/img/clear_hover.png");
+    }
   }
 
   &__bar {
@@ -422,10 +460,11 @@ input[type="range"]::-webkit-slider-thumb {
 
   &__inner {
     width: 25rem;
-    background-color: beige;
     position: absolute;
-    top: 3rem;
+    top: 5.5rem;
     bottom: 0rem;
+    box-shadow: black 1rem 0.3rem 1rem;
+    background-color: white;
   }
 }
 
