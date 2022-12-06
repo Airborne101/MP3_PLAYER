@@ -382,12 +382,11 @@ input[type="range"]::-webkit-slider-thumb {
 
 .play-list-spread {
   width: 25rem;
-  // height: 100vh; 디스플레이 테스트중
-  height: 59.96rem;
   background-color: rgb(185, 78, 78);
   position: absolute;
   top: 0rem;
   right: 0rem;
+  bottom: 0rem;
   text-align: center;
 
   &__text {
@@ -398,7 +397,6 @@ input[type="range"]::-webkit-slider-thumb {
 
   &__bar {
     width: 3rem;
-    height: 100vh;
     background-color: white;
     border-left: 0.15rem solid black;
     border-right: 0.15rem solid black;
@@ -409,6 +407,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: absolute;
     top: 0rem;
     left: 0rem;
+    bottom: 0rem;
     cursor: pointer;
     z-index: 999;
 
@@ -423,23 +422,22 @@ input[type="range"]::-webkit-slider-thumb {
 
   &__inner {
     width: 25rem;
-    height: 93.4vh;
     background-color: beige;
     position: absolute;
-    top: 6.6vh;
+    top: 3rem;
+    bottom: 0rem;
   }
 }
 
 .play-list-folded {
   width: 3rem;
-  height: 100vh;
   position: absolute;
   top: 0rem;
   right: 0rem;
+  bottom: 0rem;
 
   &__bar {
     width: 3rem;
-    height: 100vh;
     background-color: white;
     border-left: 0.15rem solid black;
     box-shadow: black 0rem 0.5rem 1rem;
@@ -449,6 +447,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: absolute;
     top: 0rem;
     right: 0rem;
+    bottom: 0rem;
     cursor: pointer;
 
     &__arrow {
