@@ -64,8 +64,8 @@ PLAY_BTN.addEventListener("click", () => {
   AUDIO.src !== "" && AUDIO.paused === false
     ? AUDIO.pause()
     : AUDIO.paused === true
-    ? AUDIO.play()
-    : null;
+      ? AUDIO.play()
+      : null;
   PLAY_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__play-btn--hover"
   );
@@ -85,12 +85,12 @@ PREV_BTN.addEventListener("click", (event) => {
 
   Number.isNaN(parseInt(prevMusic)) && LOOP_BTN.getAttribute("data-loopall")
     ? playMusic(
-        createLoop(
-          prevMusic,
-          PLAY_LIST_INFO_OBJ_GLOBAL,
-          SHUFFLE_LIST_ARRAY_GLOBAL
-        )
+      createLoop(
+        prevMusic,
+        PLAY_LIST_INFO_OBJ_GLOBAL,
+        SHUFFLE_LIST_ARRAY_GLOBAL
       )
+    )
     : playMusic(prevMusic);
 });
 
@@ -104,12 +104,12 @@ NEXT_BTN.addEventListener("click", (event) => {
 
   Number.isNaN(parseInt(nextMusic)) && LOOP_BTN.getAttribute("data-loopall")
     ? playMusic(
-        createLoop(
-          nextMusic,
-          PLAY_LIST_INFO_OBJ_GLOBAL,
-          SHUFFLE_LIST_ARRAY_GLOBAL
-        )
+      createLoop(
+        nextMusic,
+        PLAY_LIST_INFO_OBJ_GLOBAL,
+        SHUFFLE_LIST_ARRAY_GLOBAL
       )
+    )
     : playMusic(nextMusic);
 });
 
@@ -222,18 +222,18 @@ PLAY_LIST_FOLDED_BAR.addEventListener("click", () => {
   PLAY_LIST_FOLDED.classList.toggle("hidden-visibility");
 });
 
-ADD.addEventListener("change", async (event) => {
-  const resultObj =
-    (await fileListCheck(event.target.files)) === true
-      ? await createPlayList(event.target.files)
-      : null;
+ADD.addEventListener("change", (event) => {
+  SHUFFLE_BTN.removeAttribute("data-shuffle");
+  SHUFFLE_LIST_ARRAY_GLOBAL = setNull();
 
-  PLAY_LIST_INFO_OBJ_GLOBAL !== null
-    ? Object.assign(PLAY_LIST_INFO_OBJ_GLOBAL, resultObj)
-    : (PLAY_LIST_INFO_OBJ_GLOBAL = resultObj);
-
-  AUDIO.src === ""
-    ? playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0])
+  SHUFFLE_BTN.classList.remove(
+    "mp3-container__device__body__bottons-wrap__shuffle-btn-active"
+  );
+  SHUFFLE_BTN.classList.add(
+    "mp3-container__device__body__bottons-wrap__shuffle-btn"
+  );
+  fileListCheck(event.target.files) === true
+    ? createPlayList(event.target.files)
     : null;
 });
 

@@ -1,67 +1,69 @@
 const fileListCheck = function (fileList) {
   let result = true;
   let fileExtenstion = null;
-  return new Promise((resolve, reject) => {
-    for (let i = 0; i < fileList.length; i++) {
-      fileExtenstion = fileList[i].name.split(".")[1];
-      if (
-        fileExtenstion !== "mp3" &&
-        fileExtenstion !== "mp4" &&
-        fileExtenstion !== "wav"
-      ) {
-        alert("mp3, mp4, wav이 아닌 파일은 등록할 수 없습니다.");
-        result = false;
-        break;
-      }
+  for (let i = 0; i < fileList.length; i++) {
+    fileExtenstion = fileList[i].name.split(".")[1];
+    if (
+      fileExtenstion !== "mp3" &&
+      fileExtenstion !== "mp4" &&
+      fileExtenstion !== "wav"
+    ) {
+      alert("mp3, mp4, wav이 아닌 파일은 등록할 수 없습니다.");
+      result = false;
+      break;
     }
-    resolve(result);
-    reject("fileListCheck fail");
-  });
+  }
+  return result;
 };
 
 const createPlayList = function (fileList) {
   let musicInfoObj = {};
   const returnObj = {};
 
-  return new Promise((resolve, reject) => {
-    for (let i = 0; i < fileList.length; i++) {
-      JSMEDIATAGES.read(fileList[i], {
-        onSuccess: function (tag) {
-          const data = tag.tags.picture.data;
-          const format = tag.tags.picture.format;
+  for (let i = 0; i < fileList.length; i++) {
+    JSMEDIATAGES.read(fileList[i], {
+      onSuccess: function (tag) {
+        const data = tag.tags.picture.data;
+        const format = tag.tags.picture.format;
 
-          let base64string = "";
+        let base64string = "";
 
-          for (let j = 0; j < data.length; j++) {
-            base64string += String.fromCharCode(data[j]);
-          }
+        for (let j = 0; j < data.length; j++) {
+          base64string += String.fromCharCode(data[j]);
+        }
 
-          musicInfoObj.audioUrl = URL.createObjectURL(fileList[i]);
-          musicInfoObj.imgUrl = `url(data:${format};base64,${window.btoa(
-            base64string
-          )})`;
+        musicInfoObj.audioUrl = URL.createObjectURL(fileList[i]);
+        musicInfoObj.imgUrl = `url(data:${format};base64,${window.btoa(
+          base64string
+        )})`;
 
-          musicInfoObj.title =
-            tag.tags.title.length > 25
-              ? tag.tags.title.substring(0, 25) + "..."
-              : tag.tags.title;
+        musicInfoObj.title =
+          tag.tags.title.length > 25
+            ? tag.tags.title.substring(0, 25) + "..."
+            : tag.tags.title;
 
-          musicInfoObj.artist =
-            tag.tags.artist.length > 30
-              ? tag.tags.artist.substring(0, 30) + "..."
-              : tag.tags.artist;
+        musicInfoObj.artist =
+          tag.tags.artist.length > 30
+            ? tag.tags.artist.substring(0, 30) + "..."
+            : tag.tags.artist;
 
-          returnObj[Date.now()] = musicInfoObj;
-          musicInfoObj = {};
+        returnObj[Date.now()] = musicInfoObj;
+        musicInfoObj = {};
 
-          resolve(returnObj);
-        },
-        onError: function (error) {
-          reject(error);
-        },
-      });
-    }
-  });
+        // 순수함수로 만들면 async await promise를 사용해도 순서 보장 안됨
+        PLAY_LIST_INFO_OBJ_GLOBAL !== null
+          ? Object.assign(PLAY_LIST_INFO_OBJ_GLOBAL, returnObj)
+          : (PLAY_LIST_INFO_OBJ_GLOBAL = returnObj);
+
+        AUDIO.src === ""
+          ? playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0])
+          : null;
+      },
+      onError: function (error) {
+        console.log(error);
+      },
+    });
+  }
 };
 
 const playMusic = function (objId) {
