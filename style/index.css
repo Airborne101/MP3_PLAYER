@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("/style/reset.css");
 @font-face {
   font-family: "NanumPenScript-Regular";
@@ -413,6 +414,10 @@ input[type=range]::-webkit-slider-thumb {
   bottom: 0rem;
   box-shadow: black 1rem 0.3rem 1rem;
   background-color: white;
+  overflow-y: scroll;
+}
+.play-list-spread__inner::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 
 .play-list-folded {
