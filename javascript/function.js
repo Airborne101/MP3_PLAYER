@@ -29,7 +29,7 @@ const createPlayList = function (fileList) {
 
         const div = document.createElement("div");
         const h1_title = document.createElement("h1");
-        const h1_artist =  document.createElement("h1");
+        const h1_artist = document.createElement("h1");
         const img = document.createElement("img");
 
         let base64string = "";
@@ -53,7 +53,7 @@ const createPlayList = function (fileList) {
             ? tag.tags.artist.substring(0, 30) + "..."
             : tag.tags.artist;
 
-        div.setAttribute("id", id);
+        div.setAttribute("id", `div_${id}`);
         div.classList.add("play-list-spread__inner__wrap");
 
         h1_title.classList.add("play-list-spread__inner__wrap__title");
@@ -73,7 +73,7 @@ const createPlayList = function (fileList) {
         returnObj[id] = musicInfoObj;
         musicInfoObj = {};
 
-        // 순수함수로 만들면 async await promise를 사용해도 순서 보장 안됨
+        // ▼ 순수함수로 만들면 async await promise를 사용해도 순서 보장 안됨
         PLAY_LIST_INFO_OBJ_GLOBAL !== null
           ? Object.assign(PLAY_LIST_INFO_OBJ_GLOBAL, returnObj)
           : (PLAY_LIST_INFO_OBJ_GLOBAL = returnObj);
@@ -81,6 +81,7 @@ const createPlayList = function (fileList) {
         AUDIO.src === ""
           ? playMusic(Object.keys(PLAY_LIST_INFO_OBJ_GLOBAL)[0])
           : null;
+        // ▲
       },
       onError: function (error) {
         console.log(error);
@@ -89,9 +90,18 @@ const createPlayList = function (fileList) {
   }
 };
 
-const playMusic = function (objId) {
+const playMusic = function (objId, prevObjId) {
   if (Number.isNaN(parseInt(objId))) return;
+
+  if (prevObjId !== undefined) {
+    const prevPlayListDiv = document.getElementById(`div_${prevObjId}`);
+    prevPlayListDiv.style.backgroundColor = "white";
+  }
+
   const targetObj = PLAY_LIST_INFO_OBJ_GLOBAL[objId];
+
+  const playListDiv = document.getElementById(`div_${objId}`);
+  playListDiv.style.backgroundColor = "rgb(255, 219, 219)";
 
   AUDIO.id = objId;
   AUDIO.src = targetObj.audioUrl;

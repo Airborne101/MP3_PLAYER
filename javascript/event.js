@@ -37,6 +37,7 @@ AUDIO.addEventListener("ended", () => {
         PLAY_LIST_INFO_OBJ_GLOBAL,
         SHUFFLE_LIST_ARRAY_GLOBAL
       )
+      , AUDIO.id
     );
   } else if (
     Number.isNaN(parseInt(nextMusic)) &&
@@ -52,7 +53,7 @@ AUDIO.addEventListener("ended", () => {
     );
     DISK.classList.add("mp3-container__device__head__disk__pause");
   } else {
-    playMusic(nextMusic);
+    playMusic(nextMusic, AUDIO.id);
   }
 });
 
@@ -90,8 +91,9 @@ PREV_BTN.addEventListener("click", (event) => {
         PLAY_LIST_INFO_OBJ_GLOBAL,
         SHUFFLE_LIST_ARRAY_GLOBAL
       )
+      , AUDIO.id
     )
-    : playMusic(prevMusic);
+    : playMusic(prevMusic, AUDIO.id);
 });
 
 NEXT_BTN.addEventListener("click", (event) => {
@@ -109,8 +111,9 @@ NEXT_BTN.addEventListener("click", (event) => {
         PLAY_LIST_INFO_OBJ_GLOBAL,
         SHUFFLE_LIST_ARRAY_GLOBAL
       )
+      , AUDIO.id
     )
-    : playMusic(nextMusic);
+    : playMusic(nextMusic, AUDIO.id);
 });
 
 LOOP_BTN.addEventListener("click", () => {
