@@ -49,8 +49,8 @@ const createPlayList = function (fileList) {
             : tag.tags.title;
 
         musicInfoObj.artist =
-          tag.tags.artist.length > 30
-            ? tag.tags.artist.substring(0, 30) + "..."
+          tag.tags.artist.length > 25
+            ? tag.tags.artist.substring(0, 25) + "..."
             : tag.tags.artist;
 
         div.setAttribute("id", `div_${id}`);
