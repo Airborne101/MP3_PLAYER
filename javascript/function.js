@@ -23,8 +23,14 @@ const createPlayList = function (fileList) {
   for (let i = 0; i < fileList.length; i++) {
     JSMEDIATAGES.read(fileList[i], {
       onSuccess: function (tag) {
+        const id = Date.now();
         const data = tag.tags.picture.data;
         const format = tag.tags.picture.format;
+
+        const div = document.createElement("div");
+        const h1_title = document.createElement("h1");
+        const h1_artist =  document.createElement("h1");
+        const img = document.createElement("img");
 
         let base64string = "";
 
@@ -32,10 +38,10 @@ const createPlayList = function (fileList) {
           base64string += String.fromCharCode(data[j]);
         }
 
+        const imgUrl = `data:${format};base64,${window.btoa(base64string)}`;
+
         musicInfoObj.audioUrl = URL.createObjectURL(fileList[i]);
-        musicInfoObj.imgUrl = `url(data:${format};base64,${window.btoa(
-          base64string
-        )})`;
+        musicInfoObj.imgUrl = `url(${imgUrl})`;
 
         musicInfoObj.title =
           tag.tags.title.length > 25
@@ -47,7 +53,24 @@ const createPlayList = function (fileList) {
             ? tag.tags.artist.substring(0, 30) + "..."
             : tag.tags.artist;
 
-        returnObj[Date.now()] = musicInfoObj;
+        div.setAttribute("id", id);
+        div.classList.add("play-list-spread__inner__wrap");
+
+        h1_title.classList.add("play-list-spread__inner__wrap__title");
+        h1_title.innerText = `${musicInfoObj.title}`;
+
+        h1_artist.classList.add("play-list-spread__inner__wrap__artist");
+        h1_artist.innerText = `${musicInfoObj.artist}`;
+
+        img.classList.add("play-list-spread__inner__wrap__img");
+        img.setAttribute("src", imgUrl);
+
+        div.appendChild(h1_title);
+        div.appendChild(h1_artist);
+        div.appendChild(img);
+        PLAY_LIST_INNER.appendChild(div);
+
+        returnObj[id] = musicInfoObj;
         musicInfoObj = {};
 
         // 순수함수로 만들면 async await promise를 사용해도 순서 보장 안됨

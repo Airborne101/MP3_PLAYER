@@ -25,5 +25,6 @@ const PLAY_LIST_SPREAD = document.getElementById("play-list-spread");
 const PLAY_LIST_SPREAD_BAR = document.getElementById("play-list-spread-bar");
 const PLAY_LIST_FOLDED = document.getElementById("play-list-folded");
 const PLAY_LIST_FOLDED_BAR = document.getElementById("play-list-folded-bar");
+const PLAY_LIST_INNER = document.getElementById("play-list-inner");
 const ADD = document.getElementById("add");
 const CLEAR = document.getElementById("clear");

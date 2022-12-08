@@ -416,8 +416,35 @@ input[type=range]::-webkit-slider-thumb {
   background-color: white;
   overflow-y: scroll;
 }
+.play-list-spread__inner__wrap {
+  width: 21.7rem;
+  height: 4rem;
+  margin-left: 3.3rem;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+.play-list-spread__inner__wrap__img {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+.play-list-spread__inner__wrap__title {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 4.5rem;
+}
+.play-list-spread__inner__wrap__artist {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 2.2rem;
+  left: 4.5rem;
+}
 .play-list-spread__inner::-webkit-scrollbar {
-  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+  display: none;
+  /* 크롬, 사파리, 오페라, 엣지 */
 }
 
 .play-list-folded {
