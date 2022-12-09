@@ -238,6 +238,9 @@ ADD.addEventListener("change", (event) => {
   fileListCheck(event.target.files) === true
     ? createPlayList(event.target.files)
     : null;
+  
+  ADD.type = "text";
+  ADD.type = "file";
 });
 
 CLEAR.addEventListener("click", () => {
