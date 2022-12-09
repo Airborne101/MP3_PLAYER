@@ -37,6 +37,24 @@ input[type=range]::-webkit-slider-thumb {
   visibility: hidden;
 }
 
+.alert-wrap__modal {
+  width: 20rem;
+  height: 20rem;
+  background-color: red;
+  position: absolute;
+  z-index: 1001;
+  top: 35vh;
+  left: 42.2vw;
+}
+.alert-wrap__background {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.6;
+  position: absolute;
+  z-index: 1000;
+}
+
 .mp3-container {
   width: 100vw;
   height: 100vh;
