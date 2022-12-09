@@ -40,11 +40,37 @@ input[type=range]::-webkit-slider-thumb {
 .alert-wrap__modal {
   width: 20rem;
   height: 20rem;
-  background-color: red;
+  background-color: rgb(255, 219, 219);
   position: absolute;
   z-index: 1001;
   top: 35vh;
-  left: 42.2vw;
+  left: 42vw;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert-wrap__modal__img {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  z-index: 1002;
+}
+.alert-wrap__modal__message {
+  font-size: 2rem;
+  position: absolute;
+  top: 2.5rem;
+}
+.alert-wrap__modal__btn-wrap {
+  position: absolute;
+  bottom: 3rem;
+}
+.alert-wrap__modal__btn-wrap__confirm {
+  font-family: inherit;
+}
+.alert-wrap__modal__btn-wrap__cancel {
+  margin-left: 2rem;
 }
 .alert-wrap__background {
   width: 100vw;

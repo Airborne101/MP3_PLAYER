@@ -54,11 +54,37 @@ input[type="range"]::-webkit-slider-thumb {
   &__modal {
     width: 20rem;
     height: 20rem;
-    background-color: red;
+    background-color: rgb(255, 219, 219);
     position: absolute;
     z-index: 1001;
     top: 35vh;
-    left: 42.2vw;
+    left: 42vw;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__img {
+      width: 10rem;
+      height: 10rem;
+      position: absolute;
+      z-index: 1002;
+    }
+    &__message {
+      font-size: 2rem;
+      position: absolute;
+      top: 2.5rem;
+    }
+    &__btn-wrap {
+      position: absolute;
+      bottom: 3rem;
+      &__confirm {
+        font-family: inherit;
+      }
+      &__cancel {
+        margin-left: 2rem;
+      }
+    }
   }
   &__background {
     width: 100vw;
@@ -493,7 +519,7 @@ input[type="range"]::-webkit-slider-thumb {
       margin-left: 3.3rem;
       position: relative;
       border-bottom: 1px solid black;
-    
+
       &__img {
         width: 3rem;
         height: 3rem;
@@ -501,14 +527,14 @@ input[type="range"]::-webkit-slider-thumb {
         left: 0.5rem;
         top: 0.5rem;
       }
-    
+
       &__title {
         font-size: 1.3rem;
         position: absolute;
         top: 0.5rem;
         left: 4.5rem;
       }
-    
+
       &__artist {
         font-size: 1.3rem;
         position: absolute;
