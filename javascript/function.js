@@ -8,7 +8,7 @@ const fileListCheck = function (fileList) {
       fileExtenstion !== "mp4" &&
       fileExtenstion !== "wav"
     ) {
-      MESSAGE.innerText = "mp3, mp4, wav이 아닌 파일은 등록할 수 없습니다.";
+      MESSAGE.innerText = "mp3, mp4, wav가 아닌 파일은 등록할 수 없습니다.";
       ALERT.classList.remove("hidden-visibility");
       CANCEL.classList.add("display-none");
       result = false;
