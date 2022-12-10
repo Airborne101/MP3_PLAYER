@@ -36,8 +36,8 @@ AUDIO.addEventListener("ended", () => {
         nextMusic,
         PLAY_LIST_INFO_OBJ_GLOBAL,
         SHUFFLE_LIST_ARRAY_GLOBAL
-      )
-      , AUDIO.id
+      ),
+      AUDIO.id
     );
   } else if (
     Number.isNaN(parseInt(nextMusic)) &&
@@ -65,8 +65,8 @@ PLAY_BTN.addEventListener("click", () => {
   AUDIO.src !== "" && AUDIO.paused === false
     ? AUDIO.pause()
     : AUDIO.paused === true
-      ? AUDIO.play()
-      : null;
+    ? AUDIO.play()
+    : null;
   PLAY_BTN.classList.toggle(
     "mp3-container__device__body__bottons-wrap__play-btn--hover"
   );
@@ -86,13 +86,13 @@ PREV_BTN.addEventListener("click", (event) => {
 
   Number.isNaN(parseInt(prevMusic)) && LOOP_BTN.getAttribute("data-loopall")
     ? playMusic(
-      createLoop(
-        prevMusic,
-        PLAY_LIST_INFO_OBJ_GLOBAL,
-        SHUFFLE_LIST_ARRAY_GLOBAL
+        createLoop(
+          prevMusic,
+          PLAY_LIST_INFO_OBJ_GLOBAL,
+          SHUFFLE_LIST_ARRAY_GLOBAL
+        ),
+        AUDIO.id
       )
-      , AUDIO.id
-    )
     : playMusic(prevMusic, AUDIO.id);
 });
 
@@ -106,13 +106,13 @@ NEXT_BTN.addEventListener("click", (event) => {
 
   Number.isNaN(parseInt(nextMusic)) && LOOP_BTN.getAttribute("data-loopall")
     ? playMusic(
-      createLoop(
-        nextMusic,
-        PLAY_LIST_INFO_OBJ_GLOBAL,
-        SHUFFLE_LIST_ARRAY_GLOBAL
+        createLoop(
+          nextMusic,
+          PLAY_LIST_INFO_OBJ_GLOBAL,
+          SHUFFLE_LIST_ARRAY_GLOBAL
+        ),
+        AUDIO.id
       )
-      , AUDIO.id
-    )
     : playMusic(nextMusic, AUDIO.id);
 });
 
@@ -238,7 +238,7 @@ ADD.addEventListener("change", (event) => {
   fileListCheck(event.target.files) === true
     ? createPlayList(event.target.files)
     : null;
-  
+
   ADD.type = "text";
   ADD.type = "file";
 });
@@ -246,16 +246,25 @@ ADD.addEventListener("change", (event) => {
 CLEAR.addEventListener("click", () => {
   MESSAGE.innerText = "플레이 리스트를 삭제하시겠습니까?";
   ALERT.classList.remove("hidden-visibility");
+  ALERT.setAttribute("data-clear", true);
+  CANCEL.classList.remove("display-none");
 });
 
 CONFIRM.addEventListener("click", () => {
-  ALERT.classList.add("hidden-visibility");
-  while(PLAY_LIST_INNER.firstChild) {
-    PLAY_LIST_INNER.removeChild(PLAY_LIST_INNER.firstChild);
- }
-  PLAY_LIST_INFO_OBJ_GLOBAL = setNull();
+  if (ALERT.getAttribute("data-clear") !== null) {
+    ALERT.classList.add("hidden-visibility");
+    ALERT.removeAttribute("data-clear");
+    while (PLAY_LIST_INNER.firstChild) {
+      PLAY_LIST_INNER.removeChild(PLAY_LIST_INNER.firstChild);
+    }
+    PLAY_LIST_INFO_OBJ_GLOBAL = setNull();
+  }
+  else {
+    ALERT.classList.add("hidden-visibility");
+  }
 });
 
 CANCEL.addEventListener("click", () => {
   ALERT.classList.add("hidden-visibility");
+  ALERT.removeAttribute("data-clear");
 });

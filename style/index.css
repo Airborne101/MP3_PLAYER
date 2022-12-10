@@ -37,6 +37,10 @@ input[type=range]::-webkit-slider-thumb {
   visibility: hidden;
 }
 
+.display-none {
+  display: none;
+}
+
 .data-tooltip, [data-tooltip-relative]:hover:after, [data-tooltip-absolute]:hover:after {
   font-family: none;
   background-color: #000000;
@@ -74,13 +78,13 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .alert-wrap__modal {
-  width: 20rem;
+  width: 32rem;
   height: 20rem;
   background-color: white;
   position: absolute;
   z-index: 1001;
   top: 35vh;
-  left: 42vw;
+  left: 37vw;
   border: 0.2rem solid black;
   border-radius: 1rem;
   display: flex;

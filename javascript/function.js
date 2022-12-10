@@ -8,7 +8,9 @@ const fileListCheck = function (fileList) {
       fileExtenstion !== "mp4" &&
       fileExtenstion !== "wav"
     ) {
-      alert("mp3, mp4, wav이 아닌 파일은 등록할 수 없습니다.");
+      MESSAGE.innerText = "mp3, mp4, wav이 아닌 파일은 등록할 수 없습니다.";
+      ALERT.classList.remove("hidden-visibility");
+      CANCEL.classList.add("display-none");
       result = false;
       break;
     }
@@ -92,11 +94,6 @@ const createPlayList = function (fileList) {
 
 const playMusic = function (objId, prevObjId) {
   if (Number.isNaN(parseInt(objId))) return;
-
-  // if (prevObjId !== undefined) {
-  //   const prevPlayListDiv = document.getElementById(`div_${prevObjId}`);
-  //   prevPlayListDiv.style.backgroundColor = "white";
-  // }
 
   const prevPlayListDiv = document.getElementById(`div_${prevObjId}`);
   
