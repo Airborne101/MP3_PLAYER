@@ -244,5 +244,18 @@ ADD.addEventListener("change", (event) => {
 });
 
 CLEAR.addEventListener("click", () => {
+  MESSAGE.innerText = "플레이 리스트를 삭제하시겠습니까?";
+  ALERT.classList.remove("hidden-visibility");
+});
+
+CONFIRM.addEventListener("click", () => {
+  ALERT.classList.add("hidden-visibility");
+  while(PLAY_LIST_INNER.firstChild) {
+    PLAY_LIST_INNER.removeChild(PLAY_LIST_INNER.firstChild);
+ }
   PLAY_LIST_INFO_OBJ_GLOBAL = setNull();
-})
+});
+
+CANCEL.addEventListener("click", () => {
+  ALERT.classList.add("hidden-visibility");
+});

@@ -28,3 +28,8 @@ const PLAY_LIST_FOLDED_BAR = document.getElementById("play-list-folded-bar");
 const PLAY_LIST_INNER = document.getElementById("play-list-inner");
 const ADD = document.getElementById("add");
 const CLEAR = document.getElementById("clear");
+
+const ALERT = document.getElementById("alert");
+const CONFIRM = document.getElementById("confirm");
+const CANCEL = document.getElementById("cancel");
+const MESSAGE = document.getElementById("message");

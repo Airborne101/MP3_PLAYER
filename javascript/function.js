@@ -93,10 +93,16 @@ const createPlayList = function (fileList) {
 const playMusic = function (objId, prevObjId) {
   if (Number.isNaN(parseInt(objId))) return;
 
-  if (prevObjId !== undefined) {
-    const prevPlayListDiv = document.getElementById(`div_${prevObjId}`);
-    prevPlayListDiv.style.backgroundColor = "white";
-  }
+  // if (prevObjId !== undefined) {
+  //   const prevPlayListDiv = document.getElementById(`div_${prevObjId}`);
+  //   prevPlayListDiv.style.backgroundColor = "white";
+  // }
+
+  const prevPlayListDiv = document.getElementById(`div_${prevObjId}`);
+  
+  prevPlayListDiv !== null
+  ? prevPlayListDiv.style.backgroundColor = "white"
+  : null;
 
   const targetObj = PLAY_LIST_INFO_OBJ_GLOBAL[objId];
 

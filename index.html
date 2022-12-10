@@ -10,11 +10,9 @@
 
   <body>
     <audio class="audio"></audio>
-    <div class="alert-wrap">
+    <div id="alert" class="alert-wrap hidden-visibility">
       <div class="alert-wrap__modal">
-        <h1 class="alert-wrap__modal__message">
-          플레이 리스트를 삭제하시겠습니까?
-        </h1>
+        <h1 id="message" class="alert-wrap__modal__message"></h1>
         <img class="alert-wrap__modal__img" src="/img/alert.png" />
         <div class="alert-wrap__modal__btn-wrap">
           <button
@@ -87,10 +85,12 @@
             <div
               id="loop-btn"
               class="mp3-container__device__body__bottons-wrap__loop-btn"
+              data-tooltip-absolute="반복재생"
             ></div>
             <div
               id="shuffle-btn"
               class="mp3-container__device__body__bottons-wrap__shuffle-btn"
+              data-tooltip-absolute="랜덤재생"
             ></div>
             <div
               id="volume-wrap"
@@ -116,9 +116,9 @@
     <div id="play-list-spread" class="play-list-spread">
       <h1 class="play-list-spread__text">Play List</h1>
       <div class="play-list-spread__btn-wrap">
-        <label class="play-list-spread__btn-wrap__add--hover" for="add"></label>
+        <label class="play-list-spread__btn-wrap__add--hover" for="add" data-tooltip-relative="음악추가"></label>
         <input type="file" id="add" style="display: none" multiple />
-        <div id="clear" class="play-list-spread__btn-wrap__clear--hover"></div>
+        <div id="clear" class="play-list-spread__btn-wrap__clear--hover" data-tooltip-relative="전체삭제"></div>
       </div>
       <div id="play-list-spread-bar" class="play-list-spread__bar">
         <div class="play-list-spread__bar__arrow"></div>
