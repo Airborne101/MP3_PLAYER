@@ -1,8 +1,8 @@
 @charset "UTF-8";
-@import url("/style/reset.css");
+@import url("../style/reset.css");
 @font-face {
   font-family: "NanumPenScript-Regular";
-  src: url("/style/NanumPenScript-Regular.ttf") format("truetype");
+  src: url("../style/NanumPenScript-Regular.ttf") format("truetype");
 }
 body {
   overflow-y: hidden;
@@ -247,14 +247,14 @@ input[type=range]::-webkit-slider-thumb {
   width: 5rem;
   height: 5rem;
   border-radius: 3rem;
-  background-image: url("/img/play_img.png");
+  background-image: url("../img/play_img.png");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 .mp3-container__device__body__bottons-wrap__play-btn--hover:hover {
   transition: all 0.5s;
-  background-image: url("/img/play_img_hover.png");
+  background-image: url("../img/play_img_hover.png");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -262,7 +262,7 @@ input[type=range]::-webkit-slider-thumb {
 .mp3-container__device__body__bottons-wrap__prev-btn--hover {
   width: 3rem;
   height: 3rem;
-  background-image: url("/img/prev_btn.png");
+  background-image: url("../img/prev_btn.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 1rem;
@@ -272,7 +272,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 3rem;
   height: 3rem;
-  background-image: url("/img/prev_btn_hover.png");
+  background-image: url("../img/prev_btn_hover.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 1rem;
@@ -282,7 +282,7 @@ input[type=range]::-webkit-slider-thumb {
 .mp3-container__device__body__bottons-wrap__next-btn--hover {
   width: 3rem;
   height: 3rem;
-  background-image: url("/img/next_btn.png");
+  background-image: url("../img/next_btn.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 1rem;
@@ -292,7 +292,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 3rem;
   height: 3rem;
-  background-image: url("/img/next_btn_hover.png");
+  background-image: url("../img/next_btn_hover.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 1rem;
@@ -303,14 +303,14 @@ input[type=range]::-webkit-slider-thumb {
   width: 5rem;
   height: 5rem;
   border-radius: 3rem;
-  background-image: url("/img/pause_img.png");
+  background-image: url("../img/pause_img.png");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 .mp3-container__device__body__bottons-wrap__pause-btn--hover:hover {
   transition: all 0.5s;
-  background-image: url("/img/pause_img_hover.png");
+  background-image: url("../img/pause_img_hover.png");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -319,7 +319,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/loop.png");
+  background-image: url("../img/loop.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -331,7 +331,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/loop_active.png");
+  background-image: url("../img/loop_active.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -343,7 +343,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/loop_one_active.png");
+  background-image: url("../img/loop_one_active.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -355,7 +355,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/shuffle-btn.png");
+  background-image: url("../img/shuffle-btn.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -367,7 +367,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: all 0.5s;
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/shuffle-btn-active.png");
+  background-image: url("../img/shuffle-btn-active.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -385,7 +385,7 @@ input[type=range]::-webkit-slider-thumb {
 .mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn--hover {
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/volume_on.png");
+  background-image: url("../img/volume_on.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -395,14 +395,14 @@ input[type=range]::-webkit-slider-thumb {
 }
 .mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn--hover:hover {
   transition: all 0.5s;
-  background-image: url("/img/volume_on_hover.png");
+  background-image: url("../img/volume_on_hover.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 .mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn-mute--hover {
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/mute_on.png");
+  background-image: url("../img/mute_on.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -412,7 +412,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .mp3-container__device__body__bottons-wrap__volume-wrap__volume-btn-mute--hover:hover {
   transition: all 0.5s;
-  background-image: url("/img/mute_on_hover.png");
+  background-image: url("../img/mute_on_hover.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -454,19 +454,19 @@ input[type=range]::-webkit-slider-thumb {
   padding: 0.75rem 0.75rem;
   border-radius: 4px;
   cursor: pointer;
-  background-image: url("/img/add.png");
+  background-image: url("../img/add.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 .play-list-spread__btn-wrap__add--hover:hover {
   transition: all 0.5s;
-  background-image: url("/img/add_hover.png");
+  background-image: url("../img/add_hover.png");
 }
 .play-list-spread__btn-wrap__clear--hover {
   width: 1.5rem;
   height: 1.5rem;
   margin-left: 2rem;
-  background-image: url("/img/clear.png");
+  background-image: url("../img/clear.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -474,7 +474,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .play-list-spread__btn-wrap__clear--hover:hover {
   transition: all 0.5s;
-  background-image: url("/img/clear_hover.png");
+  background-image: url("../img/clear_hover.png");
 }
 .play-list-spread__bar {
   width: 3rem;
@@ -495,7 +495,7 @@ input[type=range]::-webkit-slider-thumb {
 .play-list-spread__bar__arrow {
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/arrow_left.png");
+  background-image: url("../img/arrow_left.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -608,7 +608,7 @@ input[type=range]::-webkit-slider-thumb {
 .play-list-folded__bar__arrow {
   width: 2rem;
   height: 2rem;
-  background-image: url("/img/arrow_right.png");
+  background-image: url("../img/arrow_right.png");
   background-repeat: no-repeat;
   background-size: contain;
 }/*# sourceMappingURL=index.css.map */
