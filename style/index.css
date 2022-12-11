@@ -47,7 +47,7 @@ input[type=range]::-webkit-slider-thumb {
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   border-radius: 0.3rem;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 0.75rem;
   top: 130%;
   left: -1rem;
@@ -533,6 +533,51 @@ input[type=range]::-webkit-slider-thumb {
   position: absolute;
   top: 2.2rem;
   left: 4.5rem;
+}
+.play-list-spread__inner__wrap__menu-btn--hover {
+  width: 1.5rem;
+  height: 4rem;
+  position: absolute;
+  right: 0rem;
+  border: none;
+  border-left: 0.1rem solid black;
+  background-color: white;
+  box-shadow: 0rem 0rem 0.1rem 0.1rem black;
+  cursor: pointer;
+}
+.play-list-spread__inner__wrap__menu-btn-toggle, .play-list-spread__inner__wrap__menu-btn--hover:hover {
+  color: white;
+  background-color: rgb(255, 109, 133);
+}
+.play-list-spread__inner__wrap__menu-btn--hover:hover {
+  transition: all 0.5s;
+}
+.play-list-spread__inner__wrap__menu-wrap {
+  width: 20.2rem;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+.play-list-spread__inner__wrap__menu-wrap__play--hover, .play-list-spread__inner__wrap__menu-wrap__delete--hover {
+  font-family: inherit;
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 2rem;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+.play-list-spread__inner__wrap__menu-wrap__play--hover:hover, .play-list-spread__inner__wrap__menu-wrap__delete--hover:hover {
+  transition: all 0.3s;
+  color: white;
+  background-color: rgb(255, 109, 133);
+}
+.play-list-spread__inner__wrap__menu-wrap__delete--hover {
+  margin-left: 1.5rem;
 }
 .play-list-spread__inner::-webkit-scrollbar {
   display: none;

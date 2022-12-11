@@ -33,7 +33,11 @@ const createPlayList = function (fileList) {
         const h1_title = document.createElement("h1");
         const h1_artist = document.createElement("h1");
         const img = document.createElement("img");
-
+        const menu_btn = document.createElement("button");
+        const menu_wrap = document.createElement("div");
+        const menu_play = document.createElement("button");
+        const menu_delete = document.createElement("button");
+        
         let base64string = "";
 
         for (let j = 0; j < data.length; j++) {
@@ -67,9 +71,43 @@ const createPlayList = function (fileList) {
         img.classList.add("play-list-spread__inner__wrap__img");
         img.setAttribute("src", imgUrl);
 
+        menu_btn.innerText = "● ● ●";
+        menu_btn.classList.add("play-list-spread__inner__wrap__menu-btn--hover");
+        menu_btn.addEventListener("click", () => {
+          menu_wrap.classList.toggle("hidden-visibility");
+          menu_btn.classList.toggle("play-list-spread__inner__wrap__menu-btn-toggle");
+        });
+
+        menu_wrap.classList.add("play-list-spread__inner__wrap__menu-wrap", "hidden-visibility");
+
+        menu_play.innerText = "재생";
+        menu_play.classList.add("play-list-spread__inner__wrap__menu-wrap__play--hover");
+        menu_play.addEventListener("click", () => {
+          playMusic(div.id.replace("div_", ''), AUDIO.id);
+          menu_wrap.classList.toggle("hidden-visibility");
+          menu_btn.classList.toggle("play-list-spread__inner__wrap__menu-btn-toggle");
+        });
+
+        menu_delete.innerText = "삭제";
+        menu_delete.classList.add("play-list-spread__inner__wrap__menu-wrap__delete--hover");
+        menu_delete.addEventListener("click", () => {
+          const deleteId = div.id.replace("div_", '');
+          div.remove();
+          delete PLAY_LIST_INFO_OBJ_GLOBAL[deleteId];
+
+          SHUFFLE_LIST_ARRAY_GLOBAL !== null
+          ? SHUFFLE_LIST_ARRAY_GLOBAL.splice(SHUFFLE_LIST_ARRAY_GLOBAL.indexOf(deleteId), 1)
+          : null;
+        });
+
         div.appendChild(h1_title);
         div.appendChild(h1_artist);
         div.appendChild(img);
+        div.appendChild(menu_btn);
+        menu_wrap.appendChild(menu_play);
+        menu_wrap.appendChild(menu_delete);
+        div.appendChild(menu_wrap);
+
         PLAY_LIST_INNER.appendChild(div);
 
         returnObj[id] = musicInfoObj;
@@ -104,7 +142,10 @@ const playMusic = function (objId, prevObjId) {
   const targetObj = PLAY_LIST_INFO_OBJ_GLOBAL[objId];
 
   const playListDiv = document.getElementById(`div_${objId}`);
-  playListDiv.style.backgroundColor = "rgb(255, 219, 219)";
+
+  playListDiv !== null 
+  ? playListDiv.style.backgroundColor = "rgb(255, 219, 219)"
+  : null;
 
   AUDIO.id = objId;
   AUDIO.src = targetObj.audioUrl;
