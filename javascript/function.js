@@ -172,6 +172,7 @@ const changeMusic = function (eventId, fileList, id, shuffle) {
 };
 
 const createLoop = function (direction, fileList, shuffle) {
+  if( fileList === null ) return;
   const fileListArray = shuffle !== null ? shuffle : Object.keys(fileList);
   return direction === "prev-btn"
     ? fileListArray[fileListArray.length - 1]
